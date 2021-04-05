@@ -3,6 +3,7 @@ import {useQuery} from "@apollo/client";
 import {Page} from "../../../layouts";
 
 import occQuery from '../../../api/occupation.graphql'
+import {str} from "../../../lib";
 
 export default function Occupation() {
     const { data, error } = useQuery(occQuery);
@@ -13,7 +14,7 @@ export default function Occupation() {
 
     return (
         <Page id="occupation" className="Occupation">
-            <h2>Employment</h2>
+            <h2>{str('pages.occupation.title')}</h2>
             <div>
 
             </div>

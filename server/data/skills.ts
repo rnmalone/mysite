@@ -1,131 +1,97 @@
-const O = 'ORIGIN';
+import {ISkillNode, SkillDisplayType} from "../../@types/skill";
 
-const SKILLS = [
+const SKILLS: ISkillNode[] = [
     {
         id: 'react',
-        from: 'frontend',
-        imageName: 'react.png',
+        display: {
+            icon: 'fab fa-react',
+            color: '#2ac0ca'
+        },
         name: 'React',
-        type: 'library'
     },
     {
         id: 'html',
-        from: 'frontend',
-        imageName: 'html.png',
         name: 'HTML5',
-        type: 'language'
-    },
-    {
-        id: 'css',
-        from: 'html',
-        imageName: 'css.png',
-        name: 'CSS3',
-        type: 'language'
+        display: {
+            icon: 'fab fa-html5',
+            color: '#ff2d2d'
+        },
     },
     {
         id: 'scss',
-        from: 'css',
-        imageName: 'sass.png',
         name: 'Sass',
-        type: 'preprocessor'
+        display: {
+            icon: 'fab fa-sass',
+            color: '#fa447c'
+        },
     },
     {
         id: 'webpack',
-        from: 'react',
-        imageName: 'webpack.png',
+        display: {
+            url: ''
+        },
         name: 'Webpack',
-        type: 'build tool'
     },
     {
         id: 'redux',
-        from: 'react',
-        imageName: 'redux.png',
         name: 'Redux',
-        type: 'library'
-    },
-    {
-        id: 'javascript',
-        from: 'frontend',
-        imageName: 'js.png',
-        name: 'Javascript',
-        type: 'language'
+        display: {
+            url: ''
+        },
     },
     {
         id: 'docker',
-        from: 'devops',
-        imageName: 'docker.png',
         name: 'Docker',
-        type: 'Deployment'
+        display: {
+            icon: 'fab fa-docker',
+            color: '#2ac0ca'
+        },
     },
     {
-        id: 'prometheus',
-        from: 'devops',
-        imageName: 'prometheus.png',
-        name: 'Prometheus',
-        type: 'monitoring'
+        id: 'azure',
+        name: 'Microsoft Azure',
+        display: {
+            icon: 'fab fa-windows',
+            color: '#3760f8'
+        },
     },
     {
-        id: 'jenkins',
-        from: 'devops',
-        imageName: 'jenkins.png',
-        name: 'Jenkins',
-        type: 'Deployment'
-    },
-    {
-        id: 'bash',
-        from: 'devops',
-        imageName: 'bash.png',
-        name: 'Bash',
-        type: 'language'
+        id: 'unix',
+        name: 'Unix',
+        display: {
+            icon: 'fab fa-linux',
+            color: '#f2f2f2'
+        },
     },
     {
         id: 'node',
-        from: 'backend',
-        imageName: 'nodejs.png',
         name: 'Node.JS',
-        type: 'language'
+        display: {
+            icon: 'fab fa-node-js',
+            color: '#309926'
+        },
     },
     {
         id: 'typescript',
-        from: 'node',
-        imageName: 'ts.png',
         name: 'TypeScript',
-        type: 'language'
+        display: {
+            url: ''
+        },
     },
     {
         id: 'graphql',
-        from: 'backend',
-        imageName: 'graphql.png',
         name: 'GraphQL',
-        type: 'technology'
+        display: {
+            url: ''
+        },
     },
     {
-        id: 'mysql',
-        from: 'backend',
-        imageName: 'mysql.png',
+        id: 'sql',
         name: 'SQL',
-        type: 'language'
-    },
-    {
-        id: 'java',
-        from: 'backend',
-        imageName: 'java.png',
-        name: 'Java',
-        type: 'language'
-    },
-    {
-        id: 'spring',
-        from: 'java',
-        imageName: 'spring.png',
-        name: 'Spring',
-        type: 'framework'
-    },
-    {
-        id: 'mulesoft',
-        from: 'java',
-        imageName: 'mulesoft.png',
-        name: 'Mulesoft',
-        type: 'framework'
+        display: {
+            icon: 'fab fa-database',
+            color: '#f38630'
+        },
     }
 ];
 export default SKILLS;

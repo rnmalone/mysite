@@ -1,18 +1,21 @@
 import React, {CSSProperties, useEffect, useState} from 'react';
 
 import '../styles/SkillNode.scss'
+import {ISkillNode, SkillIcon} from "../../../../@types/skill";
 
-interface ISkillNode {
+interface ISkillNodeComponent {
     id: string;
-    image: string;
+    display: ISkillNode['display'];
     name: string;
 }
 
 export default function SkillNode({
                                       id,
-                                      image,
+                                      display,
                                       name
-                                  }: ISkillNode) {
+                                  }: ISkillNodeComponent) {
+
+
 
     return (
         <div
@@ -20,7 +23,11 @@ export default function SkillNode({
             className="SkillNode"
         >
             <div className="SkillNode__inner">
-                <img src={image} alt={name}/>
+                {
+                    'icon' in display ?
+                        <i style={{ color: display.color }} className={display.icon} />
+                        : null // TODO
+                }
                 <span>{name}</span>
             </div>
         </div>

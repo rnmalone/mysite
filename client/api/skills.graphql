@@ -1,9 +1,15 @@
 {
     skills {
         id
-        from
-        imageName
         name
-        type
+        display {
+            ... on Icon {
+                icon
+                color
+            }
+            ... on Image {
+                url
+            }
+        }
     }
 }

@@ -7,15 +7,24 @@ const typeDefs = gql`
         icon: String
     }
     
-    type Skill {
-        id: String
-        from: String
-        imageName: String
-        name: String
-        type: String
+    type Icon {
+        color: String
+        icon: String
     }
     
-   type Employment {
+    type Image {
+        url: String
+    }
+    
+    union SkillDisplay = Icon | Image
+    
+    type Skill {
+        id: String 
+        name: String
+        display: SkillDisplay
+    }
+    
+    type Employment {
         from: String
         to: String
         employer: String
@@ -24,9 +33,9 @@ const typeDefs = gql`
         role: String
         countryCode: String
         image: String
-   }
-   
-   type Education {
+    }
+    
+    type Education {
         from: String
         to: String
         location: String
@@ -34,12 +43,12 @@ const typeDefs = gql`
         grade: String
         institution: String
         image: String 
-  }
-  
-  type Occupation {
+    }
+    
+    type Occupation {
         employment: [Employment]
         education: [Education]
-  }
+    }
     
     type Query {
         socials: [Social]

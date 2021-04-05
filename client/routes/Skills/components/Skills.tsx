@@ -21,7 +21,7 @@ export default function Skills() {
                     (data?.skills || []).map((skill) => (
                             <SkillNode
                                 key={`skill-${skill.name}`}
-                                image={skill.imageName}
+                                display={skill.display}
                                 name={skill.name}
                                 id={skill.name}
                             />
