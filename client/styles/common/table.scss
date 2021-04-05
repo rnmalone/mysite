@@ -1,0 +1,53 @@
+@import '../core/vars';
+
+$border-radius: 8px;
+
+.list-row {
+  font-size: .9em;
+  border-radius: 5px;
+  border-collapse: unset;
+  cursor: pointer;
+
+  &:hover {
+    td, .thumbnail {
+      border-color: $secondary-color !important;
+    }
+
+  }
+
+
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+
+  thead {
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  th {
+    font-weight: 400;
+    font-size: .85em;
+  }
+
+  td, th {
+    background-color: white;
+    border-bottom: $border-color 1px solid;
+    transition: border-color .15s linear;
+
+    &:last-child {
+      border-right: $border-color 1px solid;
+    }
+
+    &:first-child {
+      border-left: $border-color 1px solid;
+    }
+  }
+
+  td, th {
+    padding: 8px 1rem;
+  }
+}

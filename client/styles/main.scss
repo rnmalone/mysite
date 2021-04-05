@@ -1,0 +1,25 @@
+@import 'core/vars';
+@import 'transitions/slideIn';
+@import 'transitions/opacity';
+@import 'fonts/Lato';
+@import 'common/table.scss';
+@import 'common/page-item.scss';
+@import 'common/layout.scss';
+@import 'common/typeography.scss';
+@import 'common/page.scss';
+@import 'mixins/border-color.scss';
+
+#root {
+  margin: 0;
+}
+
+#root, input {
+  margin: 0;
+  font-family: 'Lato' !important;
+}
+
+body {
+  background-color: $bg-color-accent2;
+  padding: 0;
+  margin: 0;
+}
