@@ -1,0 +1,9 @@
+{
+    skills {
+        id
+        from
+        imageName
+        name
+        type
+    }
+}

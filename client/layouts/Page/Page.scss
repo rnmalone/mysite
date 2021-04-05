@@ -1,0 +1,13 @@
+.Page {
+  min-height: calc(100vh - 6rem);
+  min-width: calc(100vw - 4rem);
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > * {
+    text-align: center;
+  }
+}

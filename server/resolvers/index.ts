@@ -1,5 +1,7 @@
-import todoResolver from './Todo';
+import socialResolver from './Social';
+import skillResolver from './Skill';
+import occuptationResolver from './Occupation';
 
-const resolvers = [todoResolver]
+const resolvers = [socialResolver, skillResolver, occuptationResolver]
 
 export default resolvers;

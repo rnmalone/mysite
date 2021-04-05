@@ -1,12 +1,14 @@
 import React from 'react';
 import {Route, Switch} from "react-router";
 
-import Todos from './Todos'
+import Home from './Home'
+import SkillGraph from "./Skills";
 
 export default () => {
     return (
-        <Switch>
-            <Route exact path="/" component={Todos}/>
-        </Switch>
+       <div>
+            <Home />
+            <SkillGraph />
+       </div>
     )
 }
