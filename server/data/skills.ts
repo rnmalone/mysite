@@ -28,7 +28,7 @@ const SKILLS: ISkillNode[] = [
     {
         id: 'webpack',
         display: {
-            url: ''
+            url: '/assets/images/webpack.png'
         },
         name: 'Webpack',
     },
@@ -36,7 +36,7 @@ const SKILLS: ISkillNode[] = [
         id: 'redux',
         name: 'Redux',
         display: {
-            url: ''
+            url: '/assets/images/redux.png'
         },
     },
     {
@@ -75,14 +75,14 @@ const SKILLS: ISkillNode[] = [
         id: 'typescript',
         name: 'TypeScript',
         display: {
-            url: ''
+            url: '/assets/images/ts.png'
         },
     },
     {
         id: 'graphql',
         name: 'GraphQL',
         display: {
-            url: ''
+            url: '/assets/images/gql.png'
         },
     },
     {

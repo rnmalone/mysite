@@ -22,14 +22,12 @@ export default function SkillNode({
             id={id}
             className="SkillNode"
         >
-            <div className="SkillNode__inner">
-                {
-                    'icon' in display ?
-                        <i style={{ color: display.color }} className={display.icon} />
-                        : null // TODO
-                }
-                <span>{name}</span>
-            </div>
+            {
+                'icon' in display ?
+                    <i style={{ color: display.color }} className={display.icon} />
+                    : <img src={display.url} />
+            }
+            <span>{name}</span>
         </div>
     )
 }

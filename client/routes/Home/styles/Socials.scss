@@ -1,8 +1,21 @@
+@import 'core/vars';
+@import 'transitions/core';
+
 .Socials {
   display: flex;
   align-items: center;
 
   &__icon {
     margin: 0 .5rem;
+  }
+
+  a, a:visited {
+    color: $text-color;
+    text-decoration: none;
+    transition: $color-transition;
+
+    &:hover, &:focus {
+      color: $secondary-color;
+    }
   }
 }

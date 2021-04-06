@@ -4,7 +4,7 @@ import {logger} from "../lib";
 
 export default {
     Query: {
-        socials: () => {
+        occupation: () => {
             logger.info('Processed request for query - occupation')
 
             return {

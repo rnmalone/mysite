@@ -6,6 +6,8 @@ import {ISkillNode} from "../../../../@types/skill";
 import skillsQuery from '../../../api/skills.graphql'
 import SkillNode from "./SkillNode";
 
+import '../styles/Skills.scss';
+
 export default function Skills() {
     const { data, error } = useQuery<{ skills: ISkillNode[] }>(skillsQuery)
 
@@ -16,7 +18,7 @@ export default function Skills() {
     return (
         <Page id="skills" className="Skills">
             <h2>{str('pages.skills.title')}</h2>
-            <div className="Skill__grid">
+            <div className="Skills__grid">
                 {
                     (data?.skills || []).map((skill) => (
                             <SkillNode

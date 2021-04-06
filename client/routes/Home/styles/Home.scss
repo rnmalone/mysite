@@ -1,11 +1,22 @@
 .Home {
-
+  justify-content: center;
 
   &__img-container {
     img {
-      width: 300px;
-      height: 300px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
     }
+  }
+
+  h6 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1em;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 1rem;
   }
 }

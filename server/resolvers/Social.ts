@@ -2,7 +2,7 @@ import { SOCIALS } from "../data";
 import {logger} from "../lib";
 
 
-export default {
+const socialResolver = {
     Query: {
         socials: () => {
             logger.info('Processed request for query - socials')
@@ -11,3 +11,5 @@ export default {
         }
     }
 }
+
+export default socialResolver;
