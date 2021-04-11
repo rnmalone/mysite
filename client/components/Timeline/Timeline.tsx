@@ -20,15 +20,15 @@ export default function Timeline({ events }: ITimeline) {
             <div className="Timeline__container">
                 {
                     events.map((event) => (
-                        <article key={shortid()} className="Timeline__event">
+                        <article key={ shortid() } className="Timeline__event">
                             <div className="Timeline__event__header">
                                 <div>
-                                    <h5>{event.location}</h5>
-                                    <h6>{event.title}</h6>
+                                    <h5>{ event.location }</h5>
+                                    <h6>{ event.title }</h6>
                                 </div>
-                                <img src={event.imageSrc} />
+                                <img src={ event.imageSrc }/>
                             </div>
-                            <p>{event.text}</p>
+                            <p>{ event.text }</p>
                         </article>
                     ))
                 }

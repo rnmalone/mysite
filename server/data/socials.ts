@@ -1,4 +1,4 @@
-import {Social} from "../../@types/social";
+import { Social } from "../../@types/social";
 import { GITHUB_URL } from '../config/server.config';
 
 const SOCIALS: Social[] = [

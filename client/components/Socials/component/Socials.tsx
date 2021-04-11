@@ -1,6 +1,6 @@
 import React from 'react';
-import {useQuery} from "@apollo/client";
-import {Social} from "../../../../@types/social";
+import { useQuery } from "@apollo/client";
+import { Social } from "../../../../@types/social";
 
 import socialsQuery from '../../../api/socials.graphql';
 import '../styles/Socials.scss';
@@ -10,11 +10,11 @@ export default function Socials({ setDOMHash }: { setDOMHash(): void }) {
         onCompleted: setDOMHash
     })
 
-    if(error) {
+    if (error) {
         console.error('Error fetching Socials ' + JSON.stringify(error))
     }
 
-    if(!data) {
+    if (!data) {
         return null
     }
 
@@ -27,11 +27,11 @@ export default function Socials({ setDOMHash }: { setDOMHash(): void }) {
                                       url
                                   }) => (
                     <a
-                        className={`Socials__icon ${icon}`}
-                        key={`social-${label}`}
+                        className={ `Socials__icon ${ icon }` }
+                        key={ `social-${ label }` }
                         target="_blank"
-                        aria-label={label}
-                        href={url}
+                        aria-label={ label }
+                        href={ url }
                     />
                 ))
             }

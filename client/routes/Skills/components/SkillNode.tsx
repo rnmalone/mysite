@@ -1,7 +1,7 @@
-import React, {CSSProperties, useEffect, useState} from 'react';
+import React from 'react';
 
 import '../styles/SkillNode.scss'
-import {ISkillNode, SkillIcon} from "../../../../@types/skill";
+import { ISkillNode } from "../../../../@types/skill";
 
 interface ISkillNodeComponent {
     id: string;
@@ -16,18 +16,17 @@ export default function SkillNode({
                                   }: ISkillNodeComponent) {
 
 
-
     return (
         <div
-            id={id}
+            id={ id }
             className="SkillNode"
         >
             {
                 'icon' in display ?
-                    <i style={{ color: display.color }} className={display.icon} />
-                    : <img src={display.url} />
+                    <i style={ { color: display.color } } className={ display.icon }/>
+                    : <img src={ display.url }/>
             }
-            <span>{name}</span>
+            <span>{ name }</span>
         </div>
     )
 }

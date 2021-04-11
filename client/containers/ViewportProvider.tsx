@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from "react";
-import {IComponentProps} from "../models/generic";
+import React, { ReactElement, useEffect, useState } from "react";
 import { mobileThreshold } from '../config/client.config';
 
 export interface IWindowDimensions {
@@ -16,7 +15,7 @@ export const viewportContext = React.createContext<IWindowDimensions>({
     isMobile: checkMobileViewport(window.innerWidth, window.innerHeight)
 });
 
-const ViewportProvider = ({ children }: IComponentProps) => {
+const ViewportProvider = ({ children }: { children: ReactElement }) => {
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
     const [isMobile, setIsMobile] = useState(false)
@@ -34,8 +33,8 @@ const ViewportProvider = ({ children }: IComponentProps) => {
     }, []);
 
     return (
-        <viewportContext.Provider value={{ width, height, isMobile }}>
-            {children}
+        <viewportContext.Provider value={ { width, height, isMobile } }>
+            { children }
         </viewportContext.Provider>
     );
 };

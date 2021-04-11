@@ -7,11 +7,11 @@ import Contact from "./Contact";
 
 export default () => {
     return (
-       <PageGallery>
-            <Home />
-            <SkillGraph />
-            <Occupation />
-            <Contact />
-       </PageGallery>
+        <PageGallery>
+            <Home/>
+            <SkillGraph/>
+            <Occupation/>
+            <Contact/>
+        </PageGallery>
     )
 }

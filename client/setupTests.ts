@@ -8,4 +8,4 @@ declare let global: any;
 global.define = (a: any) => a;
 global.document = {};
 
-enzyme.configure({adapter: new ReactSixteenAdapter()});
+enzyme.configure({ adapter: new ReactSixteenAdapter() });

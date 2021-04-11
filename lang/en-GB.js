@@ -5,11 +5,16 @@ module.exports = {
         localeCode: 'en-GB'
     },
 
-    'app.title': 'Template',
-    'pages.home.download.cv': 'Download My CV',
+    'general.download.cv': 'Download My CV',
+
+    'app.title': 'Rory Malone',
+    'pages.home.subtitle': 'Full Stack Engineer',
     'pages.home.about': 'I am a senior full stack developer currently employed by Arm Holdings Ltd. I have hands on experience building high quality full stack solutions used by thousands of high profile clients. If you have an interesting opportunity for me, I\'d love to hear from you!',
 
-    'pages.skills.title': 'Skills',
+    'pages.skills.title': 'Specialisation',
+    'pages.skills.subtitle': 'Tech I use at enterprise level',
 
-    'pages.occupation.title': 'Occupation',
+    'pages.occupation.title': 'Experience',
+
+    'pages.contact.title': 'Get in Touch',
 }

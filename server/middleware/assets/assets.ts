@@ -1,5 +1,5 @@
-import {IAssetMiddlewareConfig, IAssetsObject, IHashedAssetMetaData} from './models';
-import {NextFunction, Request, Response} from 'express';
+import { IAssetMiddlewareConfig, IAssetsObject, IHashedAssetMetaData } from './models';
+import { NextFunction, Request, Response } from 'express';
 import path from "path";
 import fs from "fs";
 import debug0 from "debug";
@@ -18,7 +18,7 @@ const DEFAULT_OPTIONS: Partial<IAssetMiddlewareConfig> = {
 const assetEndsWith = (str: string) => (source: string) => source.split('?')[0].endsWith(str); // removing possible version query param before testing
 
 const buildAssetsObjFromAssetInfo = (hashedAssets: IHashedAssetMetaData): IAssetsObject => {
-    const {assets} = hashedAssets.entrypoints.main;
+    const { assets } = hashedAssets.entrypoints.main;
 
     return {
         css: assets.filter(assetEndsWith('.css')),
@@ -67,7 +67,7 @@ export default function assets(options = Object.create(null)) {
                     } else {
                         debug(err);
 
-                        cb(new Error(`Could not load build stats and no fallbacks provided, cannot render assets. (${err.message})`));
+                        cb(new Error(`Could not load build stats and no fallbacks provided, cannot render assets. (${ err.message })`));
                     }
 
                     return;

@@ -1,4 +1,4 @@
-import {Compiler} from 'webpack';
+import { Compiler } from 'webpack';
 
 export interface IAssetMiddlewareConfig {
     webpackCompiler: Compiler,

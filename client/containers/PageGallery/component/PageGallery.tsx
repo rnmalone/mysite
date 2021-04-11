@@ -1,6 +1,6 @@
 import React, { Children, cloneElement, useEffect, useRef, useState } from 'react';
 import { useTabTrap, useWindowSize } from "../../../lib/hooks";
-import {IComponentProps} from "../../../models/generic";
+import { IComponentProps } from "../../../models/generic";
 import debounce from 'lodash.debounce';
 import { transitionTime } from 'client/config/client.config';
 import { Page } from "../../../layouts";
@@ -43,10 +43,10 @@ export default function PageGallery({ children, domHash }: IPageGallery & ICompo
         const handleArrowKeys = debounce((evt) => {
             if (evt.key === 'ArrowDown') setViewed((currentIndex) => currentIndex + 1)
             if (evt.key === 'ArrowUp') setViewed((currentIndex) => currentIndex - 1)
-        } ,transitionTime)
+        }, transitionTime)
 
 
-        if(!isMobile) {
+        if (!isMobile) {
             window.addEventListener('mousewheel', handleScroll)
             window.addEventListener('keydown', handleArrowKeys)
             setViewed(0)
@@ -64,7 +64,7 @@ export default function PageGallery({ children, domHash }: IPageGallery & ICompo
 
     // @ts-ignore
     useEffect(() => {
-        if(!isMobile) {
+        if (!isMobile) {
             const [minY, maxY] = [offsetY, offsetY + height]
             // @ts-ignore
             const focusableElements: any = [...ref?.current?.querySelectorAll(
@@ -82,15 +82,15 @@ export default function PageGallery({ children, domHash }: IPageGallery & ICompo
     }, [viewed, domHash, isMobile])
 
     return (
-        <div ref={ref} className="PageGallery">
+        <div ref={ ref } className="PageGallery">
             <div
                 className="PageGallery__inner"
-                style={{ transform: `translateY(-${offsetY}px)` }}
+                style={ { transform: `translateY(-${ offsetY }px)` } }
             >
                 {
                     Children.map(children, (child) => (
                         <Page>
-                            {cloneElement(child, {})}
+                            { cloneElement(child, {}) }
                         </Page>
                     ))
                 }

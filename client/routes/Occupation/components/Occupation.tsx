@@ -1,22 +1,21 @@
 import React from 'react';
-import {useQuery} from "@apollo/client";
-
+import { useQuery } from "@apollo/client";
 import occQuery from '../../../api/occupation.graphql'
-import {str} from "../../../lib";
-import Timeline from "../../../components/Timeline";
+import { str } from "../../../lib";
+import { Timeline } from "../../../components";
 
 export default function Occupation() {
     const { data, error } = useQuery(occQuery);
 
-    if(error) {
+    if (error) {
         console.error('Error fetching occupation data ' + JSON.stringify(error));
     }
 
     return (
         <div className="Occupation">
-            <h2>{str('pages.occupation.title')}</h2>
+            <h2>{ str('pages.occupation.title') }</h2>
             <Timeline
-                events={data?.occupation || []}
+                events={ data?.occupation || [] }
             />
         </div>
     )

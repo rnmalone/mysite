@@ -1,4 +1,4 @@
-import {ActionHandler, Dispatch, IAction} from "../@types/store";
+import { ActionHandler, Dispatch, IAction } from "../@types/store";
 import axios from 'axios';
 import { localeUrl } from "client/config/client.config";
 import { ILanguageMeta, ILocaleMessages } from "../../types/lang";
@@ -11,11 +11,11 @@ export function toggleLanguage(localeCode: string) {
     return (dispatch: Dispatch<LocaleActionTypes.SET_MESSAGES>) => {
         return async () => {
             try {
-                const response = await axios.get(`${localeUrl}?localeCode=${localeCode}`)
+                const response = await axios.get(`${ localeUrl }?localeCode=${ localeCode }`)
 
                 dispatch({ type: LocaleActionTypes.SET_MESSAGES, payload: response.data })
             } catch (e) {
-                console.error(`No supported locale messages for ${localeCode}`)
+                console.error(`No supported locale messages for ${ localeCode }`)
             }
         }
     }

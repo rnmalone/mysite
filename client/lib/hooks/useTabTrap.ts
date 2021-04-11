@@ -17,7 +17,7 @@ export default function useTabTrap(condition: boolean) {
         if (evt.key === 'Tab' && elements.length) {
             evt.preventDefault();
             console.log(currentElementIndex)
-            if(currentElementIndex === -1) {
+            if (currentElementIndex === -1) {
                 await elements[0].focus()
                 setIndex(0)
             } else {
@@ -43,7 +43,7 @@ export default function useTabTrap(condition: boolean) {
     }
 
     useEffect(() => {
-        if(condition) {
+        if (condition) {
             window.addEventListener('keydown', handleTab, false);
             return () => {
                 window.removeEventListener('keydown', handleTab, false);

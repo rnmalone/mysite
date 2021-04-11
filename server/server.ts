@@ -2,17 +2,18 @@ import express from 'express';
 import cors from 'cors';
 import compress from 'compression';
 import webpackConfig from '../config/webpack.config';
-import webpack, {Configuration} from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import responseCachePlugin from 'apollo-server-plugin-response-cache';
 import schema from './schema/schema'
 import resolvers from './resolvers'
-import {assets, clientRenderer, localeMiddleware} from "./middleware";
-import {LoggingPlugin} from "./lib/plugins";
-import {locale} from './routes';
-import {logger} from "./lib";
-const {ApolloServer} = require('apollo-server-express');
+import { assets, clientRenderer, localeMiddleware } from "./middleware";
+import { LoggingPlugin } from "./lib/plugins";
+import { locale } from './routes';
+import { logger } from "./lib";
+
+const { ApolloServer } = require('apollo-server-express');
 
 export interface IContext {
     connection: unknown
@@ -30,7 +31,7 @@ export default function startServer() {
         cacheControl: {
             defaultMaxAge: 86400,
         },
-        context: () => ({ })
+        context: () => ({})
     })
 
     const webpackCompiler = webpack(webpackConfig as Configuration);
@@ -60,11 +61,11 @@ export default function startServer() {
         path: '/__hot_reload'
     }));
 
-    const assetsMiddleware = assets({webpackCompiler});
+    const assetsMiddleware = assets({ webpackCompiler });
 
     webpackCompiler.hooks.done.tap('HashedAssetPlugin', assetsMiddleware.hashedAssetsUpdated);
 
-    server.applyMiddleware({app, path: '/v1/api'})
+    server.applyMiddleware({ app, path: '/v1/api' })
 
     app.use(assetsMiddleware)
 

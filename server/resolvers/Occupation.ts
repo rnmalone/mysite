@@ -1,5 +1,5 @@
 import { OCCUPATION } from "../data";
-import {logger} from "../lib";
+import { logger } from "../lib";
 
 
 export default {

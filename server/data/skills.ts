@@ -1,4 +1,4 @@
-import {ISkillNode, SkillDisplayType} from "../../@types/skill";
+import { ISkillNode } from "../../@types/skill";
 
 const SKILLS: ISkillNode[] = [
     {

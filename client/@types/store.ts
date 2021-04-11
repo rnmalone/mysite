@@ -1,5 +1,5 @@
-import {IFilterState} from "../modules/filters";
-import {ILocaleState} from "../modules/locale";
+import { IFilterState } from "../modules/filters";
+import { ILocaleState } from "../modules/locale";
 
 export interface IAppStore {
     filters: IFilterState,

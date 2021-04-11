@@ -1,4 +1,4 @@
-import {GraphQLRequestContext, GraphQLRequestListener} from "apollo-server-plugin-base";
+import { GraphQLRequestContext, GraphQLRequestListener } from "apollo-server-plugin-base";
 
 import logger from '../logger';
 
@@ -12,7 +12,7 @@ const LoggingPlugin: GraphQLRequestListener = {
         }
 
         logger.debug(JSON.stringify(requestContext.request, null, 2))
-        logger.debug(`REQUEST PAYLOAD: ${requestContext.request.variables}`)
+        logger.debug(`REQUEST PAYLOAD: ${ requestContext.request.variables }`)
 
         return {
             didEncounterErrors(requestContext: GraphQLRequestContext) {
@@ -22,7 +22,7 @@ const LoggingPlugin: GraphQLRequestListener = {
         }
     },
     willSendResponse: (requestContext) => {
-        logger.debug(`RESPONSE: ${JSON.stringify(requestContext.response, null, 2)}`)
+        logger.debug(`RESPONSE: ${ JSON.stringify(requestContext.response, null, 2) }`)
     }
 
 }

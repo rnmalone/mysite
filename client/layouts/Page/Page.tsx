@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react';
+import React, { ReactElement } from 'react';
 
 import './Page.scss';
 
@@ -9,8 +9,8 @@ interface IPage {
 export default function Page({ children }: IPage) {
 
     return (
-        <div  className="Page">
-            {children}
+        <div className="Page">
+            { children }
         </div>
     )
 }
