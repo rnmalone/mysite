@@ -1,5 +1,5 @@
-import {ReactNode} from 'react';
+import { ReactElement, ReactNode } from 'react';
 
 export interface IComponentProps {
-    children: ReactNode | ReactNode[]
+    children: ReactElement[]
 }

@@ -14,8 +14,16 @@ export default function PageGallery({ children }: IComponentProps) {
 
     useEffect(() => {
         window.addEventListener('mousewheel', debounce(({ deltaY }) => {
-            // deltaY is 100 when scrolling down or -100 when scrolling up
-            setViewed((currentIndex) => currentIndex + (deltaY / 100))
+            setViewed((i) => {
+                // deltaY is 100 when scrolling down or -100 when scrolling up
+                const newPage = i + (deltaY / 100)
+
+                if(newPage >= 0 && newPage < children?.length) {
+                    return newPage
+                }
+
+                return i
+            })
         }), transitionTime)
 
         window.addEventListener('keydown', (evt) => {
@@ -33,7 +41,7 @@ export default function PageGallery({ children }: IComponentProps) {
                 {
                     Children.map(children, (child) => (
                         <Page>
-                            {cloneElement(child as any, {})}
+                            {cloneElement(child, {})}
                         </Page>
                     ))
                 }
