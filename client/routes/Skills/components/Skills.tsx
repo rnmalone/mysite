@@ -16,7 +16,7 @@ export default function Skills() {
     }
 
     return (
-        <Page id="skills" className="Skills">
+        <div id="skills" className="Skills">
             <h2>{str('pages.skills.title')}</h2>
             <div className="Skills__grid">
                 {
@@ -30,6 +30,6 @@ export default function Skills() {
                         ))
                 }
             </div>
-        </Page>
+        </div>
     )
 }

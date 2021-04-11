@@ -9,7 +9,7 @@ import './styles/main.scss';
 
 import {BrowserRouter} from "react-router-dom";
 import createStore from './store/createStore';
-import {Apollo, AppIntlProvider} from "./containers";
+import {Apollo, AppIntlProvider, ViewportProvider} from "./containers";
 
 const MOUNT_NODE = document.getElementById('root');
 
@@ -24,17 +24,19 @@ const store = createStore({
 
 ReactDOM.render(
     <HotLoaderContainer>
-        <Provider store={store}>
-            <AppIntlProvider>
-                <Apollo>
-                    <BrowserRouter basename={'/'}>
-                        <CoreLayout>
-                            <Routes/>
-                        </CoreLayout>
-                    </BrowserRouter>
-                </Apollo>
-            </AppIntlProvider>
-        </Provider>
+        <ViewportProvider>
+            <Provider store={store}>
+                <AppIntlProvider>
+                    <Apollo>
+                        <BrowserRouter basename={'/'}>
+                            <CoreLayout>
+                                <Routes/>
+                            </CoreLayout>
+                        </BrowserRouter>
+                    </Apollo>
+                </AppIntlProvider>
+            </Provider>
+        </ViewportProvider>
     </HotLoaderContainer>,
     MOUNT_NODE
 );

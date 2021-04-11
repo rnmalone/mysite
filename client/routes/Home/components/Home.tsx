@@ -9,7 +9,7 @@ import {Page} from "../../../layouts";
 export default function Home() {
 
     return (
-        <Page id="home" className="Home">
+        <div className="Home">
             <div className="Home__img-container">
                 <img alt="me" src={profile}/>
             </div>
@@ -22,6 +22,6 @@ export default function Home() {
                 label={str('pages.home.download.cv')}
                 onClick={() => {}}
             />
-        </Page>
+        </div>
     )
 }

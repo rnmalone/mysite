@@ -7,11 +7,7 @@ export default function CoreLayout({children}: IComponentProps) {
 
     return (
         <main role="main">
-            <div className="container">
-                <div id={"contents"}>
-                    {children}
-                </div>
-            </div>
+            {children}
         </main>
     )
 }

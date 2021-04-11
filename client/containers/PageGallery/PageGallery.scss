@@ -1,0 +1,14 @@
+@import 'core/vars';
+
+.PageGallery {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+
+  &__inner {
+    position: absolute;
+    transition: transform $page-transition-time ease-in-out;
+  }
+
+}

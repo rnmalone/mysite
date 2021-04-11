@@ -1,14 +1,15 @@
 import React from 'react';
-import {Route, Switch} from "react-router";
-
 import Home from './Home'
 import SkillGraph from "./Skills";
+import PageGallery from "../containers/PageGallery/PageGallery";
 
 export default () => {
     return (
-       <div>
+       <>
+           <PageGallery>
             <Home />
             <SkillGraph />
-       </div>
+           </PageGallery>
+       </>
     )
 }
