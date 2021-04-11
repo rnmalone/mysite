@@ -1,3 +1,20 @@
+@import 'core/vars';
+
+.grey-to-color {
+  -webkit-filter: grayscale(100%);
+  -moz-filter:    grayscale(100%);
+  -ms-filter:     grayscale(100%);
+  -o-filter:      grayscale(100%);
+  transition: all .3s linear;
+
+  &:hover {
+    -webkit-filter: grayscale(0%);
+    -moz-filter:    grayscale(0%);
+    -ms-filter:     grayscale(0%);
+    -o-filter:      grayscale(0%);
+  }
+}
+
 .SkillNode {
   display: flex;
   flex-direction: column;
@@ -5,7 +22,8 @@
   justify-content: space-between;
 
   i {
-    font-size: 4em;
+    //@extend .grey-to-color;
+    font-size: 3.2em;
     margin: 1rem;
   }
 
@@ -15,6 +33,8 @@
   }
 
   img {
-    width: 75px;
+    //@extend .grey-to-color;
+    width: 60px;
+    opacity: .6;
   }
 }

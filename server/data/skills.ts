@@ -89,7 +89,7 @@ const SKILLS: ISkillNode[] = [
         id: 'sql',
         name: 'SQL',
         display: {
-            icon: 'fab fa-database',
+            icon: 'fas fa-database',
             color: '#f38630'
         },
     }

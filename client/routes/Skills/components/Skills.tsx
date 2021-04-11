@@ -1,5 +1,4 @@
 import React from 'react';
-import {Page} from "../../../layouts";
 import {str} from "../../../lib";
 import {useQuery} from "@apollo/client";
 import {ISkillNode} from "../../../../@types/skill";

@@ -9,7 +9,7 @@ import './PageGallery.scss';
 
 export default function PageGallery({ children }: IComponentProps) {
     const { height } = useWindowSize();
-    const [viewed, setViewed] = useState<number>(2);
+    const [viewed, setViewed] = useState<number>(0);
     const offsetY = viewed * height;
 
     useEffect(() => {
