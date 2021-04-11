@@ -1,22 +1,29 @@
 .Home {
   justify-content: center;
+  padding-top: 4rem;
 
   &__img-container {
     img {
       width: 200px;
       height: 200px;
       border-radius: 50%;
+      border: rgba(255, 255, 255, 0.1) 5px solid;
     }
   }
 
+  h1 {
+    font-size: 4em;
+    font-weight: 400;
+    margin: 2rem 0;
+  }
+
   h6 {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
   }
 
   p {
     max-width: 600px;
-    margin: 1rem;
+    margin: 2rem;
   }
 }

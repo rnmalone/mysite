@@ -7,6 +7,11 @@ export default function CoreLayout({children}: IComponentProps) {
 
     return (
         <main role="main">
+            <div className="lines">
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+            </div>
             {children}
         </main>
     )

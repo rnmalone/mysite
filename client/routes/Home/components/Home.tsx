@@ -15,8 +15,8 @@ export default function Home() {
             </div>
             <h1>Rory Malone</h1>
             <h6>Full Stack Engineer</h6>
-            <Socials />
             <p id="about">{str('pages.home.about')}</p>
+            <Socials />
             <CtaButton
                 text={str('pages.home.download.cv')}
                 label={str('pages.home.download.cv')}
