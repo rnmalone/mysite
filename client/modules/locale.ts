@@ -1,7 +1,7 @@
 import {ActionHandler, Dispatch, IAction} from "../@types/store";
 import axios from 'axios';
-import {ILanguageMeta, ILocaleMessages} from "../../@types";
 import { localeUrl } from "client/config/client.config";
+import { ILanguageMeta, ILocaleMessages } from "../../types/lang";
 
 enum LocaleActionTypes {
     SET_MESSAGES = 'app/modules/locale/SET_MESSAGES'

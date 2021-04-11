@@ -1,15 +1,29 @@
-import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react';
-import {useWindowSize} from "../../lib/hooks";
-import {IComponentProps} from "../../models/generic";
+import React, { Children, cloneElement, useEffect, useRef, useState } from 'react';
+import { useTabTrap, useWindowSize } from "../../../lib/hooks";
+import {IComponentProps} from "../../../models/generic";
 import debounce from 'lodash.debounce';
 import { transitionTime } from 'client/config/client.config';
-import { Page } from "../../layouts";
+import { Page } from "../../../layouts";
 
-import './PageGallery.scss';
+import '../styles/PageGallery.scss';
+import { IAppState } from "../../../modules";
 
-export default function PageGallery({ children }: IComponentProps) {
+interface IPageGallery {
+    domHash: IAppState['dom']['hash']
+}
+
+/**
+ * Scroll or key through each full page at a time
+ *
+ * @param children
+ * @param domHash
+ * @constructor
+ */
+export default function PageGallery({ children, domHash }: IPageGallery & IComponentProps) {
+    const ref: React.RefObject<HTMLDivElement> = useRef(null);
     const { height, isMobile } = useWindowSize();
     const [viewed, setViewed] = useState<number>(0);
+    const { setElements } = useTabTrap(!isMobile);
     const offsetY = viewed * height;
 
     useEffect(() => {
@@ -31,6 +45,7 @@ export default function PageGallery({ children }: IComponentProps) {
             if (evt.key === 'ArrowUp') setViewed((currentIndex) => currentIndex - 1)
         } ,transitionTime)
 
+
         if(!isMobile) {
             window.addEventListener('mousewheel', handleScroll)
             window.addEventListener('keydown', handleArrowKeys)
@@ -46,10 +61,28 @@ export default function PageGallery({ children }: IComponentProps) {
         }
     }, [isMobile])
 
-    console.log(isMobile)
+
+    // @ts-ignore
+    useEffect(() => {
+        if(!isMobile) {
+            const [minY, maxY] = [offsetY, offsetY + height]
+            // @ts-ignore
+            const focusableElements: any = [...ref?.current?.querySelectorAll(
+                'button, [role="button"], [href], input, select, textarea, a, [tabindex]:not([tabindex="-1"])'
+            )].filter((element) => {
+                const { y } = element.getBoundingClientRect();
+                // As the content scrolls up we lose the relative position of the element in the doc
+                const yActual = viewed > 0 ? ((viewed - 1) * height) + y : y
+
+                return yActual > minY && yActual < maxY
+            })
+
+            setElements(focusableElements)
+        }
+    }, [viewed, domHash, isMobile])
 
     return (
-        <div className="PageGallery">
+        <div ref={ref} className="PageGallery">
             <div
                 className="PageGallery__inner"
                 style={{ transform: `translateY(-${offsetY}px)` }}

@@ -1,12 +1,14 @@
 import React from 'react';
 import {useQuery} from "@apollo/client";
-import {Social} from "../../../@types/social";
+import {Social} from "../../../../@types/social";
 
-import socialsQuery from '../../api/socials.graphql';
-import './Socials.scss';
+import socialsQuery from '../../../api/socials.graphql';
+import '../styles/Socials.scss';
 
-export default function Socials() {
-    const { data, error } = useQuery<{ socials: Social[] }>(socialsQuery)
+export default function Socials({ setDOMHash }: { setDOMHash(): void }) {
+    const { data, error } = useQuery<{ socials: Social[] }>(socialsQuery, {
+        onCompleted: setDOMHash
+    })
 
     if(error) {
         console.error('Error fetching Socials ' + JSON.stringify(error))
@@ -27,7 +29,6 @@ export default function Socials() {
                     <a
                         className={`Socials__icon ${icon}`}
                         key={`social-${label}`}
-                        tabIndex={0}
                         target="_blank"
                         aria-label={label}
                         href={url}

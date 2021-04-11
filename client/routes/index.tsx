@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './Home'
 import SkillGraph from "./Skills";
-import PageGallery from "../containers/PageGallery/PageGallery";
+import PageGallery from "../containers/PageGallery";
 import Occupation from "./Occupation";
 import Contact from "./Contact";
 
