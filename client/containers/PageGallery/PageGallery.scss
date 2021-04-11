@@ -8,6 +8,10 @@
   position: absolute;
   overflow: hidden;
 
+  @media screen and (max-width: $mobile-threshold) {
+    overflow-y: auto;
+  }
+
   &__inner {
     position: absolute;
     transition: transform $page-transition-time ease-in-out;

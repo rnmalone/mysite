@@ -18,10 +18,13 @@ $light-grey: #aeaeae;
 $color-accent: rgba(255, 255, 255, 0.1);
 
 $border-color: #f2f2f2;
-$bg-color: #282b37;
+$bg-color: #171717;
 
 $box-shadow: 0px 0px 20px 3px rgba(189, 189, 189, 0.18);
 
+$mobile-threshold: 760px;
+
 :export {
-  transitionTime: $page-transition-time
+  transitionTime: $page-transition-time;
+  mobileThreshold: $mobile-threshold;
 }

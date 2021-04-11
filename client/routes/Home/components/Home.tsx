@@ -1,10 +1,8 @@
 import React from 'react';
 import profile from '../../../assets/images/profile.jpg'
 import '../styles/Home.scss';
-import Socials from "./Socials";
-import {CtaButton} from "../../../components";
 import {str} from "../../../lib";
-import {Page} from "../../../layouts";
+import Socials from "../../../components/Socials";
 
 export default function Home() {
 
@@ -17,11 +15,6 @@ export default function Home() {
             <h6>Full Stack Engineer</h6>
             <p id="about">{str('pages.home.about')}</p>
             <Socials />
-            <CtaButton
-                text={str('pages.home.download.cv')}
-                label={str('pages.home.download.cv')}
-                onClick={() => {}}
-            />
         </div>
     )
 }

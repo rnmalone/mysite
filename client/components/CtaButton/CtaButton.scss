@@ -1,7 +1,15 @@
+@import 'core/vars';
+
 .CtaButton {
-  background: transparent;
   height: 44px;
   padding: 0 1rem;
-  border: 2px solid;
-  border-radius: 22px;
+  border: $color-accent 2px solid;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: $bg-color;
+  transition: border-color .2s linear;
+
+  &:hover, &focus {
+    border-color: #f2f2f2;
+  }
 }

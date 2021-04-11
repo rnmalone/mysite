@@ -17,7 +17,6 @@ interface ITimeline {
 export default function Timeline({ events }: ITimeline) {
     return (
         <section className="Timeline">
-            <span className="Timeline__line" />
             <div className="Timeline__container">
                 {
                     events.map((event) => (

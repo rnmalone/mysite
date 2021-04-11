@@ -8,29 +8,45 @@ import { Page } from "../../layouts";
 import './PageGallery.scss';
 
 export default function PageGallery({ children }: IComponentProps) {
-    const { height } = useWindowSize();
+    const { height, isMobile } = useWindowSize();
     const [viewed, setViewed] = useState<number>(0);
     const offsetY = viewed * height;
 
     useEffect(() => {
-        window.addEventListener('mousewheel', debounce(({ deltaY }) => {
+        const handleScroll = debounce(({ deltaY }) => {
             setViewed((i) => {
                 // deltaY is 100 when scrolling down or -100 when scrolling up
                 const newPage = i + (deltaY / 100)
 
-                if(newPage >= 0 && newPage < children?.length) {
+                if (newPage >= 0 && newPage < children?.length) {
                     return newPage
                 }
 
                 return i
             })
-        }), transitionTime)
+        }, transitionTime)
 
-        window.addEventListener('keydown', (evt) => {
-            if(evt.key === 'ArrowDown') setViewed((currentIndex) => currentIndex + 1)
-            if(evt.key === 'ArrowUp') setViewed((currentIndex) => currentIndex - 1)
-        })
-    }, [])
+        const handleArrowKeys = debounce((evt) => {
+            if (evt.key === 'ArrowDown') setViewed((currentIndex) => currentIndex + 1)
+            if (evt.key === 'ArrowUp') setViewed((currentIndex) => currentIndex - 1)
+        } ,transitionTime)
+
+        if(!isMobile) {
+            window.addEventListener('mousewheel', handleScroll)
+            window.addEventListener('keydown', handleArrowKeys)
+            setViewed(0)
+        } else {
+            window.removeEventListener('mousewheel', handleScroll)
+            window.removeEventListener('keydown', handleArrowKeys)
+        }
+
+        return () => {
+            window.removeEventListener('mousewheel', handleScroll)
+            window.removeEventListener('keydown', handleArrowKeys)
+        }
+    }, [isMobile])
+
+    console.log(isMobile)
 
     return (
         <div className="PageGallery">

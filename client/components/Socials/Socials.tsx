@@ -1,9 +1,9 @@
 import React from 'react';
 import {useQuery} from "@apollo/client";
-import {Social} from "../../../../@types/social";
+import {Social} from "../../../@types/social";
 
-import socialsQuery from '../../../api/socials.graphql';
-import '../styles/Socials.scss';
+import socialsQuery from '../../api/socials.graphql';
+import './Socials.scss';
 
 export default function Socials() {
     const { data, error } = useQuery<{ socials: Social[] }>(socialsQuery)
@@ -20,9 +20,9 @@ export default function Socials() {
         <div className="Socials">
             {
                 data.socials.map(({
-                    label,
-                    icon,
-                    url
+                                      label,
+                                      icon,
+                                      url
                                   }) => (
                     <a
                         className={`Socials__icon ${icon}`}
