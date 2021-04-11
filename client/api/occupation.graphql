@@ -1,23 +1,8 @@
 {
     occupation {
-        employment {
-            from
-            to
-            employer
-            location
-            description
-            role
-            countryCode
-            image
-        }
-        education {
-            from
-            to
-            location
-            countryCode
-            grade
-            institution
-            image
-        }
+       title,
+       imageSrc
+       location
+       text
     }
 }

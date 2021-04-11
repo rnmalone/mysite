@@ -23,37 +23,18 @@ const typeDefs = gql`
         name: String
         display: SkillDisplay
     }
-    
-    type Employment {
-        from: String
-        to: String
-        employer: String
-        location: String
-        description: String
-        role: String
-        countryCode: String
-        image: String
-    }
-    
-    type Education {
-        from: String
-        to: String
-        location: String
-        countryCode: String
-        grade: String
-        institution: String
-        image: String 
-    }
-    
+        
     type Occupation {
-        employment: [Employment]
-        education: [Education]
+        imageSrc: String
+        title: String
+        text: String
+        location: String
     }
     
     type Query {
         socials: [Social]
         skills: [Skill]
-        occupation: Occupation
+        occupation: [Occupation]
     }
     
 `

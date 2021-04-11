@@ -1,9 +1,9 @@
 import React from 'react';
 import {useQuery} from "@apollo/client";
-import {Page} from "../../../layouts";
 
 import occQuery from '../../../api/occupation.graphql'
 import {str} from "../../../lib";
+import Timeline from "../../../components/Timeline";
 
 export default function Occupation() {
     const { data, error } = useQuery(occQuery);
@@ -13,11 +13,11 @@ export default function Occupation() {
     }
 
     return (
-        <Page id="occupation" className="Occupation">
+        <div className="Occupation">
             <h2>{str('pages.occupation.title')}</h2>
-            <div>
-
-            </div>
-        </Page>
+            <Timeline
+                events={data?.occupation || []}
+            />
+        </div>
     )
 }

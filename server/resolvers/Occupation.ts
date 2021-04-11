@@ -1,4 +1,4 @@
-import {EDUCATION, EMPLOYMENT} from "../data";
+import { OCCUPATION } from "../data";
 import {logger} from "../lib";
 
 
@@ -7,10 +7,7 @@ export default {
         occupation: () => {
             logger.info('Processed request for query - occupation')
 
-            return {
-                education: EDUCATION,
-                employment: EMPLOYMENT
-            }
+            return OCCUPATION
         }
     }
 }
