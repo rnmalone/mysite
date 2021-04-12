@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from 'express';
 import path from "path";
 import fs from "fs";
 import debug0 from "debug";
-
+const project = require('../../../config/project.config')
 const debug = debug0('app:middlewares:assets');
 
 const DEFAULT_OPTIONS: Partial<IAssetMiddlewareConfig> = {
@@ -32,8 +32,10 @@ const loadAssetInfo = ({
                            hashedAssetsInfoFilename
                        }: IAssetMiddlewareConfig, cb: (err: any, info?: IHashedAssetMetaData) => void) => {
     const fileSystem = webpackCompiler ? webpackCompiler.outputFileSystem : fs;
-    const assetsLocation = webpackCompiler.outputPath;
+    const assetsLocation = webpackCompiler?.outputPath || project.paths.build();
     const assetsPath = path.join(assetsLocation, hashedAssetsInfoFilename);
+
+    console.log(assetsPath)
 
     // @ts-ignore
     fileSystem.readFile(assetsPath, (err: any, buffer: Buffer): void => {

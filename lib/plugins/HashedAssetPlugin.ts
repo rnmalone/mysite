@@ -12,7 +12,6 @@ interface IHashedAssetPluginOptions {
  *
  * @see https://webpack.js.org/concepts/plugins/
  *
- * @author Rory Malone <rory.malone@arm.com>
  */
 export default class HashedAssetPlugin {
     options: IHashedAssetPluginOptions;
@@ -28,7 +27,6 @@ export default class HashedAssetPlugin {
     /**
      * method Webpack calls on plugins
      *
-     * @author Rory Malone <rory.malone@arm.com>
      */
     apply(compiler: Compiler) {
         compiler.hooks.done.tap('HashedAssetPlugin', (stats: Stats) => {

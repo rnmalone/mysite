@@ -21,6 +21,7 @@ const config = {
         client: 'client',
         public: 'public',
         server: 'server',
+        build: 'build',
         resources: 'resources',
         logs: 'logs',
     },
@@ -97,13 +98,14 @@ config.server.templateLocals.basePath = config.client.basePath;
 const basePath = path.resolve(__dirname, '..');
 
 function getPath(...args) {
-    return path.resolve(basePath, ...args);
+    return path.resolve(basePath, process.env.SOURCE_DIR ? '..' : '', ...args);
 }
 
 config.paths = {
     base: getPath,
     config: getPath.bind(null, config.dirs.config),
     client: getPath.bind(null, config.dirs.client),
+    build: getPath.bind(null, config.dirs.build),
     public: getPath.bind(null, config.dirs.public),
     server: getPath.bind(null, config.dirs.server),
     logs: getPath.bind(null, config.dirs.logs),

@@ -1,6 +1,6 @@
-import { ISkillNode } from "../../@types/skill";
+import { Skill } from "../../types/graph";
 
-const SKILLS: ISkillNode[] = [
+const SKILLS: Skill[] = [
     {
         id: 'react',
         display: {

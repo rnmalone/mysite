@@ -11,7 +11,8 @@
     "moduleResolution": "node",
     "noImplicitReturns": false,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true
   },
   "include": [
     "./server/**/*",
@@ -19,6 +20,7 @@
     "config/**/*"
   ],
   "exclude": [
-    "./client/**/*"
+    "./client/**/*",
+    "./node_modules/@types/react"
   ]
 }

@@ -1,11 +1,10 @@
 import React from 'react';
-
+import { Icon, Image, SkillDisplay } from "../../../../types/graph";
 import '../styles/SkillNode.scss'
-import { ISkillNode } from "../../../../@types/skill";
 
 interface ISkillNodeComponent {
     id: string;
-    display: ISkillNode['display'];
+    display: SkillDisplay;
     name: string;
 }
 
@@ -15,6 +14,8 @@ export default function SkillNode({
                                       name
                                   }: ISkillNodeComponent) {
 
+    const iconDisplay = display as Icon;
+    const imageDisplay = display as Image;
 
     return (
         <div
@@ -22,9 +23,14 @@ export default function SkillNode({
             className="SkillNode"
         >
             {
-                'icon' in display ?
-                    <i style={ { color: display.color } } className={ display.icon }/>
-                    : <img src={ display.url }/>
+                'icon' in iconDisplay! ?
+                    <i style={ { color: iconDisplay.color! } } className={ iconDisplay.icon! }/>
+                    : null
+            }
+            {
+                'url' in imageDisplay! ?
+                    <img src={ imageDisplay.url! }/>
+                    : null
             }
             <span>{ name }</span>
         </div>

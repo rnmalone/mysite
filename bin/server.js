@@ -1,6 +1,6 @@
 const debug = require('debug')('app:bin:server');
 const project = require('../config/project.config');
-const server = require('../dist/server/main');
+const server = require('../dist/server/server');
 
 server.listen(project.server.port);
 

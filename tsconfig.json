@@ -11,7 +11,8 @@
       "es7",
       "es2017",
       "dom",
-      "es2019"
+      "es2019",
+      "es2020"
     ],
     "sourceMap": true,
     "allowJs": true,
@@ -25,29 +26,24 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "typeRoots": ["./types/*.d.ts", "node_modules/@types"]
+    "skipLibCheck": true
   },
   "exclude": [
     "bin",
-    "lang",
+    "server/lang",
     "lib",
     "server",
-    "automated",
     "support",
-    "feature",
     "config/jest.config.js",
     "node_modules",
     "build",
     "scripts",
-    "acceptance-tests",
     "webpack",
     "jest",
     "src/setupTests.ts",
-    "bdd",
-    "reports",
     "tools",
     "config",
     "coverage",
-    "config/commitlint.config.js"
+    "dist"
   ]
 }

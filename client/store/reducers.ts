@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
-import { globalReducers } from '../modules';
+import { globalReducers, IAppState } from '../modules';
 import { Reducer } from 'typesafe-actions';
-import { IAppStore } from "../@types/store";
 
 export default function createReducers(
     lazyReducers: {
-        [key: string]: Reducer<IAppStore, any>;
+        [key: string]: Reducer<IAppState, any>;
     } = {}) {
 
     return combineReducers({ ...globalReducers, ...lazyReducers })

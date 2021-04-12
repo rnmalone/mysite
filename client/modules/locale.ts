@@ -1,6 +1,6 @@
 import { ActionHandler, Dispatch, IAction } from "../@types/store";
 import axios from 'axios';
-import { localeUrl } from "client/config/client.config";
+import { localeUrl } from "../config/client.config";
 import { ILanguageMeta, ILocaleMessages } from "../../types/lang";
 
 enum LocaleActionTypes {

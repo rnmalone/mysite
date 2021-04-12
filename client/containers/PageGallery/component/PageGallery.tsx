@@ -2,7 +2,7 @@ import React, { Children, cloneElement, useEffect, useRef, useState } from 'reac
 import { useTabTrap, useWindowSize } from "../../../lib/hooks";
 import { IComponentProps } from "../../../models/generic";
 import debounce from 'lodash.debounce';
-import { transitionTime } from 'client/config/client.config';
+import { transitionTime } from '../../../config/client.config';
 import { Page } from "../../../layouts";
 
 import '../styles/PageGallery.scss';

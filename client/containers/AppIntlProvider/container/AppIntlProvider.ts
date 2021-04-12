@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { IAppStore } from "../../../@types/store";
 import AppIntlProvider from "../component/AppIntlProvider";
+import { IAppState } from "../../../modules";
 
-const mapStateToProps = (state: IAppStore) => ({
+const mapStateToProps = (state: IAppState) => ({
     ...state.locale,
 })
 

@@ -1,7 +1,7 @@
 import { logger } from "../lib";
 import { Request, Response } from 'express'
 
-const supportedLocale = require('../../lang')
+const supportedLocale = require('../lang')
 
 export default async function locale(request: Request, response: Response) {
     const { localeCode } = request.query

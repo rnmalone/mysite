@@ -2,9 +2,9 @@ import vars from '../styles/core/vars.scss'
 import { SassExtractor } from "../lib/utils";
 
 export const {
-    apiBaseUri,
-    localeUrl
-} = window.__INITIAL_STATE__
+    apiBaseUri = '/v1/api',
+    localeUrl = '/locale'
+} = (window.__INITIAL_STATE__ || {})
 
 
 export const transitionTime = 100; //ms

@@ -1,14 +1,14 @@
 import React from 'react';
 import { str } from "../../../lib";
 import { useQuery } from "@apollo/client";
-import { ISkillNode } from "../../../../@types/skill";
 import skillsQuery from '../../../api/skills.graphql'
 import SkillNode from "./SkillNode";
+import { SkillsResponse } from "../../../../types/responses";
 
 import '../styles/Skills.scss';
 
 export default function Skills() {
-    const { data, error } = useQuery<{ skills: ISkillNode[] }>(skillsQuery)
+    const { data, error } = useQuery<SkillsResponse>(skillsQuery)
 
     if (error) {
         console.error('Error fetching skills' + JSON.stringify(error))
@@ -23,9 +23,9 @@ export default function Skills() {
                     (data?.skills || []).map((skill) => (
                         <SkillNode
                             key={ `skill-${ skill.name }` }
-                            display={ skill.display }
-                            name={ skill.name }
-                            id={ skill.name }
+                            display={ skill.display! }
+                            name={ skill.name! }
+                            id={ skill.name! }
                         />
                     ))
                 }

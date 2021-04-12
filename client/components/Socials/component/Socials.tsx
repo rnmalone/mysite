@@ -1,12 +1,12 @@
 import React from 'react';
 import { useQuery } from "@apollo/client";
-import { Social } from "../../../../@types/social";
 
 import socialsQuery from '../../../api/socials.graphql';
 import '../styles/Socials.scss';
+import { SocialsResponse } from "../../../../types/responses";
 
 export default function Socials({ setDOMHash }: { setDOMHash(): void }) {
-    const { data, error } = useQuery<{ socials: Social[] }>(socialsQuery, {
+    const { data, error } = useQuery<SocialsResponse>(socialsQuery, {
         onCompleted: setDOMHash
     })
 
@@ -30,8 +30,8 @@ export default function Socials({ setDOMHash }: { setDOMHash(): void }) {
                         className={ `Socials__icon ${ icon }` }
                         key={ `social-${ label }` }
                         target="_blank"
-                        aria-label={ label }
-                        href={ url }
+                        aria-label={ label! }
+                        href={ url! }
                     />
                 ))
             }

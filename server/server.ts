@@ -19,6 +19,8 @@ export interface IContext {
     connection: unknown
 }
 
+const __DEV__ = process.env.NODE_ENV === 'development'
+
 export default function startServer() {
     const server = new ApolloServer({
         typeDefs: schema,
@@ -42,7 +44,6 @@ export default function startServer() {
     app.disable('etag');
 
     app.set('views', config.paths.public());
-    app.set('view engine', 'pug');
 
     Object.assign(app.locals, config.globals, config.server.templateLocals);
 
@@ -51,25 +52,33 @@ export default function startServer() {
 
     config = require('../config/project.config');
 
-    logger.info('Enabling webpack dev and hot reloading middleware.');
-
-    app.use(webpackDevMiddleware(webpackCompiler, {
-        publicPath: config.client.basePath
-    }));
-
-    app.use(webpackHotMiddleware(webpackCompiler, {
-        path: '/__hot_reload'
-    }));
-
-    const assetsMiddleware = assets({ webpackCompiler });
-
-    webpackCompiler.hooks.done.tap('HashedAssetPlugin', assetsMiddleware.hashedAssetsUpdated);
-
+    app.set('view engine', 'pug');
     server.applyMiddleware({ app, path: '/v1/api' })
 
-    app.use(assetsMiddleware)
+    if(__DEV__) {
 
-    app.use(express.static(config.paths.public()));
+        logger.info('Enabling webpack dev and hot reloading middleware.');
+
+        app.use(webpackDevMiddleware(webpackCompiler, {
+            publicPath: config.client.basePath
+        }));
+
+        app.use(webpackHotMiddleware(webpackCompiler, {
+            path: '/__hot_reload'
+        }));
+
+        const assetsMiddleware = assets({ webpackCompiler });
+
+        webpackCompiler.hooks.done.tap('HashedAssetPlugin', assetsMiddleware.hashedAssetsUpdated);
+
+
+        app.use(assetsMiddleware)
+        app.use(express.static(config.paths.public()));
+    } else {
+        app.use(express.static(config.paths.build()))
+        app.use(assets({ buildStatsDir: config.paths.public() }))
+    }
+
     app.use('/assets', express.static(config.paths.server('assets')))
     app.get('/locale', locale)
 

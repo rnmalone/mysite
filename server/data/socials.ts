@@ -1,5 +1,5 @@
-import { Social } from "../../@types/social";
-import { GITHUB_URL } from '../config/server.config';
+import { GITHUB_URL, FACEBOOK_URL, LINKEDIN_URL } from '../config/server.config';
+import { Social } from "../../types/graph";
 
 const SOCIALS: Social[] = [
     {
@@ -10,12 +10,12 @@ const SOCIALS: Social[] = [
     {
         label: 'Facebook',
         icon: 'fab fa-facebook-f',
-        url: ''
+        url: FACEBOOK_URL
     },
     {
         label: 'LinkedIn',
         icon: 'fab fa-linkedin-in',
-        url: ''
+        url: LINKEDIN_URL
     }
 ]
 

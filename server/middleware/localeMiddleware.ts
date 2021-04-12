@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-const localeMessages = require('../../lang')
+const localeMessages = require('../lang')
 
 /**
  * Append messages for selected language based on browser preference

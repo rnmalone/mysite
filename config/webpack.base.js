@@ -1,27 +1,34 @@
+const config = require('./project.config');
 const webpack = require('webpack');
-const project = require('./project.config');
-const HashedAssetPlugin = require('../lib/plugins');
-const APP_ENTRY = project.paths.client('main.tsx');
-const APP_PUBLIC_PATH = project.client.basePath;
-
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TEMPLATE = config.paths.public('index.html');
+// -------------------------------------
+// Style loaders
+// -------------------------------------
 const CSS_LOADER = {
     loader: 'css-loader',
     options: {
-        sourceMap: project.build.sourceMap,
+        sourceMap: true,
         importLoaders: 1
     }
 };
 
+// "postcss" loader applies autoprefixer to our CSS.
+// "css" loader resolves paths in CSS and adds assets as dependencies.
+// "style" loader turns CSS into JS modules that inject <style> tags.
+// In production, we use a plugin to extract that CSS to a file, but
+// in development "style" loader enables hot editing of CSS.
 const POSTCSS_LOADER = {
+    // Necessary for external CSS imports to work
     loader: 'postcss-loader',
     options: {
-        sourceMap: project.build.sourceMap,
+        sourceMap: true,
         plugins: () => [
             require('cssnano')({
                 autoprefixer: {
                     add: true,
                     remove: true,
-                    browsers: project.client.supportedBrowsers
                 },
                 discardComments: {
                     removeAll: true
@@ -30,7 +37,7 @@ const POSTCSS_LOADER = {
                 mergeIdents: false,
                 reduceIdents: false,
                 safe: true,
-                sourcemap: project.build.sourceMap
+                sourcemap: true
             })
         ]
     }
@@ -39,38 +46,33 @@ const POSTCSS_LOADER = {
 const SASS_LOADER = {
     loader: 'sass-loader',
     options: {
-        sourceMap: project.build.sourceMap,
+        sourceMap: true,
         sassOptions: {
             includePaths: [
-                project.paths.client('styles')
+                config.paths.client('styles')
             ]
         }
     }
 };
 
 module.exports = {
-    devtool: 'inline-source-map',
-    mode: 'development',
-    target: 'web',
-    entry: [
-        '@babel/polyfill',
-        'react-hot-loader/patch',
-        `webpack-hot-middleware/client?path=${APP_PUBLIC_PATH}__hot_reload&reload=true`,
-        APP_ENTRY
-    ],
-    output: {
-        filename: 'js/[name].[hash].js',
-        path: project.paths.public(),
-        publicPath: APP_PUBLIC_PATH
-    },
-
     resolve: {
+        extensions: ['.ts', '.tsx', '.js'],
+        alias: {
+            react: path.resolve(__dirname, '../../', 'node_modules/react')
+        },
         modules: [
             'node_modules',
-            project.paths.base()
-        ],
-        extensions: ['.tsx', '.ts', '.js']
+            config.paths.base()
+        ]
     },
+
+    // Makes some environment variables available to the JS code, for example:
+    // if (process.env.NODE_ENV === 'development')
+    plugins: [
+        new webpack.DefinePlugin(config.globals),
+
+    ],
 
     module: {
         rules: [
@@ -79,35 +81,17 @@ module.exports = {
                 loader: 'ts-loader',
                 exclude: /node_modules/,
                 options: {
-                    // Allows to compile the client code in development when there are ts errors
                     transpileOnly: true
                 }
             },
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    CSS_LOADER,
-                    POSTCSS_LOADER,
-                    'resolve-url-loader'
-                ]
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    CSS_LOADER,
-                    POSTCSS_LOADER,
-                    'resolve-url-loader',
-                    SASS_LOADER
-                ]
+                test: /\.(png|svg|jpg|gif)$/,
+                // "file" loader makes sure those assets get served by WebpackDevServer.
+                // When you `import` an asset, you get its (virtual) filename.
+                // In production, they would get copied to the `build` folder.
+                // This loader doesn't use a "test" so it will catch all modules
+                // that fall through the other loaders.
+                loader: 'file-loader'
             },
             {
                 test: /\.woff(\?.*)?$/,
@@ -161,35 +145,25 @@ module.exports = {
                 }
             },
             {
-                test: /\.svg(\?.*)?$/,
-                use: {
-                    loader: 'url-loader',
-                    options: {
-                        name: 'images/[name].[ext]',
-                        limit: 10000,
-                        mimetype: 'image/svg+xml'
-                    }
-                }
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    CSS_LOADER,
+                    POSTCSS_LOADER,
+                    'resolve-url-loader',
+                    SASS_LOADER
+                ]
             },
             {
-                test: /\.(png|jpg)(\?.*)?$/,
-                use: {
-                    loader: 'url-loader',
-                    options: {
-                        name: 'images/[name].[ext]',
-                        limit: 10000
-                    }
-                }
+                // plain css for third-party libraries or for globally overriding existing classes
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             },
             {
                 test: /\.(graphql|gql)$/,
                 exclude: /node_modules/,
-                loader: ['graphql-tag/loader']
-            }
+                loader: 'graphql-tag/loader',
+            },
         ]
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new HashedAssetPlugin.default(),
-    ]
 };
