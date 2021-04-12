@@ -32,6 +32,7 @@ export default function Socials({ setDOMHash }: { setDOMHash(): void }) {
                         target="_blank"
                         aria-label={ label! }
                         href={ url! }
+                        rel="noopener"
                     />
                 ))
             }

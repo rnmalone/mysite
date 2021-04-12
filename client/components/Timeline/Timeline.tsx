@@ -26,7 +26,7 @@ export default function Timeline({ events }: ITimeline) {
                                     <h5>{ event.location }</h5>
                                     <h6>{ event.title }</h6>
                                 </div>
-                                <img src={ event.imageSrc }/>
+                                <img src={ event.imageSrc } alt={ event.title }/>
                             </div>
                             <p>{ event.text }</p>
                         </article>

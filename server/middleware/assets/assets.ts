@@ -35,8 +35,6 @@ const loadAssetInfo = ({
     const assetsLocation = webpackCompiler?.outputPath || project.paths.build();
     const assetsPath = path.join(assetsLocation, hashedAssetsInfoFilename);
 
-    console.log(assetsPath)
-
     // @ts-ignore
     fileSystem.readFile(assetsPath, (err: any, buffer: Buffer): void => {
         if (err) {
