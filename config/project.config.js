@@ -48,7 +48,7 @@ const config = {
         localeUrl: process.env.LOCALE_URL || '/locale',
 
         templateLocals: {
-            title: 'Template'
+            title: 'Rory Malone'
         }
     },
 
