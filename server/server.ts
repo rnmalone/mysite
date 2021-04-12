@@ -8,16 +8,10 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import responseCachePlugin from 'apollo-server-plugin-response-cache';
 import schema from './schema/schema'
 import resolvers from './resolvers'
-import { assets, clientRenderer, localeMiddleware } from "./middleware";
-import { LoggingPlugin } from "./lib/plugins";
+import { assets, clientRenderer, localeMiddleware } from './middleware';
 import { locale } from './routes';
-import { logger } from "./lib";
-
-const { ApolloServer } = require('apollo-server-express');
-
-export interface IContext {
-    connection: unknown
-}
+import { logger } from './lib';
+import { ApolloServer } from 'apollo-server-express'
 
 const __DEV__ = process.env.NODE_ENV === 'development'
 
@@ -27,7 +21,6 @@ export default function startServer() {
         resolvers,
         tracing: process.env.NODE_ENV === 'dev',
         plugins: [
-            LoggingPlugin,
             responseCachePlugin()
         ],
         cacheControl: {
@@ -38,7 +31,8 @@ export default function startServer() {
 
     const webpackCompiler = webpack(webpackConfig as Configuration);
 
-    let config = require('../config/project.config');
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const config = require('../config/project.config');
     const app = express();
 
     app.disable('etag');
@@ -50,13 +44,10 @@ export default function startServer() {
     app.use(cors());
     app.use(compress());
 
-    config = require('../config/project.config');
-
     app.set('view engine', 'pug');
     server.applyMiddleware({ app, path: '/v1/api' })
 
     if(__DEV__) {
-
         logger.info('Enabling webpack dev and hot reloading middleware.');
 
         app.use(webpackDevMiddleware(webpackCompiler, {

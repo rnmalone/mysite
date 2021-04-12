@@ -1,4 +1,4 @@
-import { Occupation, Skill, Social } from "./graph";
+import { Occupation, Skill, Social } from './graph';
 
 export type SkillsResponse = {
     skills: Required<Skill>[]

@@ -7,9 +7,9 @@ import { CoreLayout } from './layouts';
 import Routes from './routes';
 import './styles/main.scss';
 
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
 import createStore from './store/createStore';
-import { Apollo, AppIntlProvider, ViewportProvider } from "./containers";
+import { Apollo, AppIntlProvider, ViewportProvider } from './containers';
 
 const MOUNT_NODE = document.getElementById('root');
 

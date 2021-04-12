@@ -15,5 +15,6 @@ export default async function locale(request: Request, response: Response) {
     }
 
     logger.info(`Unsupported locale ${ localeCode }`)
+
     return response.sendStatus(404)
 }
