@@ -8,11 +8,13 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import responseCachePlugin from 'apollo-server-plugin-response-cache';
 import schema from './schema/schema'
 import resolvers from './resolvers'
-import { assets, clientRenderer, localeMiddleware } from './middleware';
+import { assets, clientRenderer, localeMiddleware, scriptIdMiddleware } from './middleware';
 import { locale } from './routes';
 import { logger } from './lib';
 import { ApolloServer } from 'apollo-server-express'
-
+import helmet from 'helmet';
+import * as uuid from 'uuid';
+import { BASE_CSP_HEADERS } from "./config/server.config";
 const __DEV__ = process.env.NODE_ENV === 'development'
 
 export default function startServer() {
@@ -30,7 +32,6 @@ export default function startServer() {
     })
 
     const webpackCompiler = webpack(webpackConfig as Configuration);
-
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const config = require('../config/project.config');
     const app = express();
@@ -40,6 +41,8 @@ export default function startServer() {
     app.set('views', config.paths.public());
 
     Object.assign(app.locals, config.globals, config.server.templateLocals);
+
+    const id = uuid.v4()
 
     app.use(cors());
     app.use(compress());
@@ -62,10 +65,20 @@ export default function startServer() {
 
         webpackCompiler.hooks.done.tap('HashedAssetPlugin', assetsMiddleware.hashedAssetsUpdated);
 
-
         app.use(assetsMiddleware)
         app.use(express.static(config.paths.public()));
     } else {
+        app.use(scriptIdMiddleware(id))
+
+        app.use(helmet({
+            contentSecurityPolicy: {
+                directives: {
+                    ...BASE_CSP_HEADERS,
+                    scriptSrcElem: `\'nonce-${id}\'`,
+                }
+            }
+        }));
+
         app.use(express.static(config.paths.build()))
         app.use(assets({ buildStatsDir: config.paths.public() }))
     }

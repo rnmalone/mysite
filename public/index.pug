@@ -20,8 +20,8 @@ html(lang=locale)
     body
         #root()
 
-        script.
+        script(nonce=scriptId).
             window.__INITIAL_STATE__ = !{initialClientState};
 
         each scriptSrc in assets.js
-            script(src=scriptSrc)
+            script(src=scriptSrc, nonce=scriptId)

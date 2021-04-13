@@ -12,6 +12,7 @@ import createStore from './store/createStore';
 import { Apollo, AppIntlProvider, ViewportProvider } from './containers';
 
 const MOUNT_NODE = document.getElementById('root');
+console.log(window.__INITIAL_STATE__)
 
 const { localeMessages, supportedLanguages } = window.__INITIAL_STATE__
 
@@ -21,6 +22,7 @@ const store = createStore({
         supportedLanguages,
     }
 })
+
 
 ReactDOM.render(
     <HotLoaderContainer>
