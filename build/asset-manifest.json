@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/static/js/main.72dc2753.chunk.js",
+    "main.js": "/static/js/main.30ccd9ec.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.e387f811.js",
-    "static/js/2.3257fdc2.chunk.js": "/static/js/2.3257fdc2.chunk.js",
-    "precache-manifest.7be9891e5437fb2a9365d40c85411595.js": "/precache-manifest.7be9891e5437fb2a9365d40c85411595.js",
+    "static/js/2.34ad9576.chunk.js": "/static/js/2.34ad9576.chunk.js",
+    "precache-manifest.e275195b1d4737bbbe6e87472ac68fd5.js": "/precache-manifest.e275195b1d4737bbbe6e87472ac68fd5.js",
     "service-worker.js": "/service-worker.js",
-    "static/js/2.3257fdc2.chunk.js.LICENSE.txt": "/static/js/2.3257fdc2.chunk.js.LICENSE.txt",
+    "static/js/2.34ad9576.chunk.js.LICENSE.txt": "/static/js/2.34ad9576.chunk.js.LICENSE.txt",
     "static/media/Lato-Bold.ttf": "/static/media/Lato-Bold.85d339d9.ttf",
     "static/media/Lato-BoldItalic.ttf": "/static/media/Lato-BoldItalic.f98d1804.ttf",
     "static/media/Lato-Italic.ttf": "/static/media/Lato-Italic.7582e823.ttf",
@@ -19,7 +19,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.e387f811.js",
-    "static/js/2.3257fdc2.chunk.js",
-    "static/js/main.72dc2753.chunk.js"
+    "static/js/2.34ad9576.chunk.js",
+    "static/js/main.30ccd9ec.chunk.js"
   ]
 }
