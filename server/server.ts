@@ -43,7 +43,6 @@ export default function startServer() {
 
     const id = uuid.v4()
 
-    app.use(cors());
     app.use(compress());
 
     app.set('view engine', 'pug');
