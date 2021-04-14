@@ -1,7 +1,7 @@
 import React from 'react';
 import { str } from "../../../lib";
 import { useQuery } from "@apollo/client";
-import skillsQuery from '../../../api/skills.graphql'
+import skillsQuery from '../../../api/graphql/skills.graphql'
 import SkillNode from "./SkillNode";
 import { SkillsResponse } from "../../../../types/responses";
 
@@ -15,7 +15,7 @@ export default function Skills() {
     }
 
     return (
-        <div id="skills" className="Skills">
+        <div id="Skills" className="Skills">
             <h2>{ str('pages.skills.title') }</h2>
             <p>{ str('pages.skills.subtitle') }</p>
             <div className="Skills__grid">

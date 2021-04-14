@@ -32,7 +32,8 @@ const config = {
     client: {
         // APP Base Path WITH leading AND ending slash
         basePath: process.env.BASE_PATH || '/',
-        supportedBrowsers: ['> 1%', 'last 2 versions', 'not ie <=10', 'ie 11', 'Firefox ESR']
+        supportedBrowsers: ['> 1%', 'last 2 versions', 'not ie <=10', 'ie 11', 'Firefox ESR'],
+        appInsightsKey: process.env.APP_INSIGHTS_IKEY
     },
 
     // -------------------------------------

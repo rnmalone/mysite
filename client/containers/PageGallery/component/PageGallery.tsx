@@ -88,8 +88,8 @@ export default function PageGallery({ children, domHash }: IPageGallery & ICompo
                 style={ { transform: `translateY(-${ offsetY }px)` } }
             >
                 {
-                    Children.map(children, (child) => (
-                        <Page>
+                    Children.map(children, (child, index) => (
+                        <Page id={`page-${index}`}>
                             { cloneElement(child, {}) }
                         </Page>
                     ))
