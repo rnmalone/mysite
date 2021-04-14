@@ -62,6 +62,8 @@ module.exports = {
     dotenv: resolveApp('.env'),
     appPath: resolveApp('.'),
     appBuild: resolveApp('build'),
+    clientPath: resolveApp('client'),
+    resolveEntry: resolveApp('client/main.tsx'),
     appPublic: resolveApp('public'),
     appHtml: resolveApp('public/index.pug'),
     appIndexJs: resolveModule(resolveApp, 'src/main.tsx'),

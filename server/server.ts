@@ -14,8 +14,7 @@ import { logger } from './lib';
 import { ApolloServer } from 'apollo-server-express'
 import helmet from 'helmet';
 import * as uuid from 'uuid';
-import { BASE_CSP_HEADERS } from "./config/server.config";
-const __DEV__ = process.env.NODE_ENV === 'development'
+import { __DEV__, BASE_CSP_HEADERS } from "./config/server.config";
 
 export default function startServer() {
     const server = new ApolloServer({

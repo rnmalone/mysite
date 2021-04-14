@@ -31,7 +31,7 @@ const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
 const HashedAssetPlugin = require('../dist/lib/plugins');
 
 const appPackageJson = require(paths.appPackageJson);
-const APP_ENTRY = project.paths.client('main.tsx');
+const APP_ENTRY = paths.resolveEntry;
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';

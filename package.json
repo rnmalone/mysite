@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon",
+    "start": "node app.js",
     "start:prod": "cross-env SOURCE_DIR=dist NODE_ENV=production node dist/server/index.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon",
+    "build": "npm run build:server",
+    "build:azure": "npm run build",
     "build:server": "rimraf ./dist && tsc --project tsconfig.server.json",
-    "build:client": "rimraf ./build && webpack --config ./config/webpack.config.js",
+    "build:client": "webpack --config ./config/webpack.config.js",
     "build:client:prod": "rimraf ./build && cross-env NODE_ENV=production webpack --config ./config/webpack.prod.config.js",
-    "build:prod": "npm run build:server &&npm run build:client:prod",
+    "build:prod": "npm run build:server && npm run build:client:prod",
     "test": "jest --reporters=default --config ./config/jest.config.js --maxWorkers=4",
     "lint": "eslint ./*/**.ts* --fix",
     "generate": "graphql-codegen"
@@ -38,9 +41,7 @@
     "react-intl": "^3.11.0",
     "react-router-dom": "^5.2.0",
     "uuid": "^8.3.2",
-    "winston": "^3.3.3"
-  },
-  "devDependencies": {
+    "winston": "^3.3.3",
     "@apollo/client": "^3.2.0",
     "@babel/polyfill": "^7.0.0",
     "@calm/eslint-plugin-react-intl": "^1.4.1",
@@ -136,5 +137,6 @@
     "webpack-manifest-plugin": "^2.2.0",
     "webpack-merge": "^4.1.4",
     "workbox-webpack-plugin": "^4.3.1"
-  }
+  },
+  "devDependencies": {}
 }

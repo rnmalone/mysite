@@ -44,6 +44,7 @@
     "tools",
     "config",
     "coverage",
-    "dist"
+    "dist",
+    "./app.js"
   ]
 }

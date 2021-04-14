@@ -9,7 +9,7 @@ const myFormat = printf(({ level, message, timestamp }) => {
 });
 
 const logger = winston.createLogger({
-    level: process.env.LOG_LEVEL || 'info',
+    level: 'info',
     format: combine(
         timestamp(),
         myFormat
@@ -21,13 +21,12 @@ const logger = winston.createLogger({
     ]
 })
 
-if (process.env.NODE_ENV !== 'production') {
-    logger.add(new winston.transports.Console({
-        format: combine(
-            timestamp(),
-            myFormat
-        ),
-    }));
-}
+logger.add(new winston.transports.Console({
+    format: combine(
+        timestamp(),
+        myFormat
+    ),
+}));
+
 
 export default logger;

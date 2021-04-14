@@ -16,3 +16,5 @@ export const BASE_CSP_HEADERS = {
     styleSrcElem: '\'unsafe-inline\' https://use.fontawesome.com',
     upgradeInsecureRequests: ''
 }
+
+export const __DEV__ = process.env.NODE_ENV === 'development'
