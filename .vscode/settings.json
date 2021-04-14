@@ -1,8 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/37170162-a09b-4ab8-b716-147b3a1ff206/resourceGroups/rnmalone/providers/Microsoft.Web/sites/rnmalone",
-    "appService.deploySubpath": ".",
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}",
-        ".vscode{,/**}"
-    ]
-}
