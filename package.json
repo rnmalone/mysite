@@ -20,7 +20,6 @@
     "@types/react": "^17.0.3"
   },
   "dependencies": {
-    "@types/react": "^17.0.3",
     "apollo-server": "^2.17.0",
     "apollo-server-cache-redis": "^1.2.2",
     "apollo-server-express": "^2.17.0",
@@ -61,6 +60,7 @@
     "@types/node": "^13.9.1",
     "@types/query-string": "^6.3.0",
     "@types/random-words": "^1.1.0",
+    "@types/react": "^17.0.3",
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
     "@types/react-router": "^5.1.8",
