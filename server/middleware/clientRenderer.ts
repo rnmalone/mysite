@@ -4,8 +4,6 @@ const config = require('../../config/project.config')
 
 export default function clientRenderer(request: Request, response: Response) {
 
-    console.log(request)
-
     const createClientConfig = () => ({
         apiBaseUri: config.server.apiBaseUri,
         localeUrl: config.server.localeUrl

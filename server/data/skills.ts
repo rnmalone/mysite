@@ -49,7 +49,7 @@ const SKILLS: Skill[] = [
     },
     {
         id: 'azure',
-        name: 'Microsoft Azure',
+        name: 'Azure',
         display: {
             icon: 'fab fa-windows',
             color: '#3760f8'
