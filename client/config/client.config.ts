@@ -3,7 +3,9 @@ import { SassExtractor } from "../lib/utils";
 
 export const {
     apiBaseUri = '/v1/api',
-    localeUrl = '/locale'
+    localeUrl = '/locale',
+    appInsightsKey = '',
+    __DEV__ = false
 } = (window.__INITIAL_STATE__ || {})
 
 

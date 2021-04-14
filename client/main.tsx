@@ -5,14 +5,13 @@ import ReactDOM from 'react-dom';
 import { AppContainer as HotLoaderContainer } from 'react-hot-loader';
 import { CoreLayout } from './layouts';
 import Routes from './routes';
-import './styles/main.scss';
-
 import { BrowserRouter } from 'react-router-dom';
 import createStore from './store/createStore';
 import { Apollo, AppIntlProvider, ViewportProvider } from './containers';
 
+import './styles/main.scss';
+
 const MOUNT_NODE = document.getElementById('root');
-console.log(window.__INITIAL_STATE__)
 
 const { localeMessages, supportedLanguages } = window.__INITIAL_STATE__
 

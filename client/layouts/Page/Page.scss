@@ -1,8 +1,9 @@
 @import 'core/vars';
 
 .Page {
-  width: 100vw;
-  height: 100vh;
+  margin: 2px 0;
+  width: 99vw;
+  height: calc(100vh - 2px);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -10,7 +11,8 @@
 
   @media screen and (max-width: $mobile-threshold) {
     height: fit-content;
-    padding: 2rem 0;
+    padding: 1rem 0;
+    margin: 1rem 0;
   }
 
   > * {

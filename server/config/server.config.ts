@@ -1,7 +1,7 @@
 export const {
     GITHUB_URL = '',
     FACEBOOK_URL = '',
-    LINKEDIN_URL = ''
+    LINKEDIN_URL = '',
 } = process.env
 
 export const BASE_CSP_HEADERS = {

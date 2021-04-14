@@ -48,6 +48,7 @@
     "@calm/eslint-plugin-react-intl": "^1.4.1",
     "@graphql-codegen/cli": "^1.21.3",
     "@graphql-codegen/typescript-resolvers": "^1.19.0",
+    "@microsoft/applicationinsights-web": "^2.6.1",
     "@types/classnames": "^2.2.10",
     "@types/compression": "^1.7.0",
     "@types/cors": "^2.8.6",

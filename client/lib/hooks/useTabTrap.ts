@@ -16,7 +16,6 @@ export default function useTabTrap(condition: boolean) {
 
         if (evt.key === 'Tab' && elements.length) {
             evt.preventDefault();
-            console.log(currentElementIndex)
             if (currentElementIndex === -1) {
                 await elements[0].focus()
                 setIndex(0)

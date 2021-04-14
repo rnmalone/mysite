@@ -6,7 +6,7 @@ import { Socials } from "../../../components";
 export default function Home() {
 
     return (
-        <div className="Home">
+        <div id="Home" className="Home">
             <div className="Home__img-container">
                 <img alt="me" src="/assets/images/profile.jpg"/>
             </div>
