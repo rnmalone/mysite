@@ -9,9 +9,8 @@
     "build": "npm run build:server",
     "build:azure": "npm run build",
     "build:server": "rimraf ./dist && tsc --project tsconfig.server.json",
-    "build:client": "webpack --config ./config/webpack.config.js",
-    "build:client:prod": "rimraf ./build && cross-env NODE_ENV=production webpack --config ./config/webpack.prod.config.js",
-    "build:prod": "npm run build:server && npm run build:client:prod",
+    "build:client": "rimraf ./build && cross-env NODE_ENV=production webpack --config ./config/webpack.prod.config.js",
+    "build:prod": "npm run build:server && npm run build:client",
     "test": "jest --reporters=default --config ./config/jest.config.js --maxWorkers=4",
     "lint": "eslint ./*/**.ts* --fix",
     "generate": "graphql-codegen"
