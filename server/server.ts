@@ -1,5 +1,4 @@
 import express from 'express';
-import cors from 'cors';
 import compress from 'compression';
 import webpackConfig from '../config/webpack.config';
 import webpack, { Configuration } from 'webpack';
