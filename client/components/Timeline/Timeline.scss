@@ -35,6 +35,7 @@
     h6 {
       margin: 0;
       letter-spacing: 1px;
+      font-size: 1em;
       text-transform: uppercase;
       opacity: .8;
     }
@@ -53,6 +54,8 @@
         width: 0;
         height: 0;
         visibility: hidden;
+
+
       }
     }
 
@@ -60,6 +63,21 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      @media screen and (max-width: $mobile-threshold) {
+        flex-direction: column;
+        > div {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+      }
+    }
+
+    &__timeframe {
+      font-size: 1em;
     }
   }
 

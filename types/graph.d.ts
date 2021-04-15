@@ -27,6 +27,7 @@ export type Image = {
 export type Occupation = {
   __typename?: 'Occupation';
   imageSrc?: Maybe<Scalars['String']>;
+  timeframe?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   location?: Maybe<Scalars['String']>;

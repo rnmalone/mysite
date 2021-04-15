@@ -1,17 +1,11 @@
 {
   "files": {
-    "main.js": "/static/js/main.30ccd9ec.chunk.js",
+    "main.js": "/static/js/main.8a10a271.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.e387f811.js",
-    "static/js/2.34ad9576.chunk.js": "/static/js/2.34ad9576.chunk.js",
-    "precache-manifest.e275195b1d4737bbbe6e87472ac68fd5.js": "/precache-manifest.e275195b1d4737bbbe6e87472ac68fd5.js",
+    "static/js/2.5362af78.chunk.js": "/static/js/2.5362af78.chunk.js",
+    "precache-manifest.e22e81dd36594446d525bdf14701e49f.js": "/precache-manifest.e22e81dd36594446d525bdf14701e49f.js",
     "service-worker.js": "/service-worker.js",
-    "static/js/2.34ad9576.chunk.js.LICENSE.txt": "/static/js/2.34ad9576.chunk.js.LICENSE.txt",
-    "static/media/Lato-Bold.ttf": "/static/media/Lato-Bold.85d339d9.ttf",
-    "static/media/Lato-BoldItalic.ttf": "/static/media/Lato-BoldItalic.f98d1804.ttf",
-    "static/media/Lato-Italic.ttf": "/static/media/Lato-Italic.7582e823.ttf",
-    "static/media/Lato-Light.ttf": "/static/media/Lato-Light.2fe27d9d.ttf",
-    "static/media/Lato-LightItalic.ttf": "/static/media/Lato-LightItalic.4d80ac57.ttf",
-    "static/media/Lato-Regular.ttf": "/static/media/Lato-Regular.2d36b1a9.ttf",
+    "static/js/2.5362af78.chunk.js.LICENSE.txt": "/static/js/2.5362af78.chunk.js.LICENSE.txt",
     "static/media/PlayfairDisplay-Bold.ttf": "/static/media/PlayfairDisplay-Bold.d27b6b12.ttf",
     "static/media/PlayfairDisplay-BoldItalic.ttf": "/static/media/PlayfairDisplay-BoldItalic.5214c1b1.ttf",
     "static/media/PlayfairDisplay-Italic.ttf": "/static/media/PlayfairDisplay-Italic.8969f241.ttf",
@@ -19,7 +13,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.e387f811.js",
-    "static/js/2.34ad9576.chunk.js",
-    "static/js/main.30ccd9ec.chunk.js"
+    "static/js/2.5362af78.chunk.js",
+    "static/js/main.8a10a271.chunk.js"
   ]
 }

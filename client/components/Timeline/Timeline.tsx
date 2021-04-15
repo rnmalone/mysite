@@ -5,6 +5,7 @@ import './Timeline.scss';
 
 export interface IEvent {
     location: string;
+    timeframe: string;
     title: string;
     text: string;
     imageSrc: string;
@@ -24,6 +25,7 @@ export default function Timeline({ events }: ITimeline) {
                             <div className="Timeline__event__header">
                                 <div>
                                     <h5>{ event.location }</h5>
+                                    <span className="Timeline__event__timeframe">{event.timeframe}</span>
                                     <h6>{ event.title }</h6>
                                 </div>
                                 <img src={ event.imageSrc } alt={ event.title }/>

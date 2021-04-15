@@ -10,6 +10,13 @@ const SKILLS: Skill[] = [
         name: 'React',
     },
     {
+        id: 'typescript',
+        name: 'TypeScript',
+        display: {
+            url: '/assets/images/ts.png'
+        },
+    },
+    {
         id: 'html',
         name: 'HTML5',
         display: {
@@ -24,13 +31,6 @@ const SKILLS: Skill[] = [
             icon: 'fab fa-sass',
             color: '#fa447c'
         },
-    },
-    {
-        id: 'webpack',
-        display: {
-            url: '/assets/images/webpack.png'
-        },
-        name: 'Webpack',
     },
     {
         id: 'redux',
@@ -72,13 +72,6 @@ const SKILLS: Skill[] = [
         },
     },
     {
-        id: 'typescript',
-        name: 'TypeScript',
-        display: {
-            url: '/assets/images/ts.png'
-        },
-    },
-    {
         id: 'graphql',
         name: 'GraphQL',
         display: {
@@ -92,6 +85,13 @@ const SKILLS: Skill[] = [
             icon: 'fas fa-database',
             color: '#f38630'
         },
-    }
+    },
+    {
+        id: 'webpack',
+        display: {
+            url: '/assets/images/webpack.png'
+        },
+        name: 'Webpack',
+    },
 ];
 export default SKILLS;

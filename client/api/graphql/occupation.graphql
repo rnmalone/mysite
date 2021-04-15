@@ -1,6 +1,7 @@
 {
     occupation {
-       title,
+       title
+       timeframe
        imageSrc
        location
        text

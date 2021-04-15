@@ -26,6 +26,7 @@ const typeDefs = gql`
         
     type Occupation {
         imageSrc: String
+        timeframe: String
         title: String
         text: String
         location: String
