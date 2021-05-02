@@ -2,8 +2,8 @@
 
 .Home {
   justify-content: center;
-  padding-top: 4rem;
   margin-bottom: 4rem;
+  min-height: 100vh;
 
   @media screen and (max-width: $mobile-threshold) {
     padding-top: 1rem;

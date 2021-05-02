@@ -1,11 +1,12 @@
 import React from 'react';
-import { Icon, Image, SkillDisplay } from "../../../../types/graph";
-import '../styles/SkillNode.scss'
+import { Icon, Image, SkillDisplay } from "../../../types";
+
+import './SkillNode.scss'
 
 interface ISkillNodeComponent {
-    id: string;
+    id?: string;
     display: SkillDisplay;
-    name: string;
+    name?: string;
 }
 
 export default function SkillNode({
@@ -32,7 +33,7 @@ export default function SkillNode({
                     <img src={ imageDisplay.url! } alt={ name } width={ 60 }/>
                     : null
             }
-            <span>{ name }</span>
+            { name && <span>{ name }</span> }
         </div>
     )
 }

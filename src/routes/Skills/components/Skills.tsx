@@ -1,6 +1,6 @@
 import React from 'react';
-import SkillNode from "./SkillNode";
 import { SKILLS } from "../../../data";
+import { SkillNode } from "../../../components";
 
 import '../styles/Skills.scss';
 

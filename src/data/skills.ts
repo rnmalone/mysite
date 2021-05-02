@@ -5,21 +5,34 @@ import redux from '../assets/images/redux.png'
 import ts from '../assets/images/ts.png'
 import webpack from '../assets/images/webpack.png'
 
+export const REACT_ICON = {
+    icon: 'fab fa-react',
+    color: '#2ac0ca'
+}
+
+export const TS_ICON = {
+    url: ts
+}
+
+export const GQL_ICON = {
+    url: gql
+}
+
+export const SQL_ICON = {
+    icon: 'fas fa-database',
+    color: '#f38630'
+}
+
 const SKILLS: Skill[] = [
     {
         id: 'react',
-        display: {
-            icon: 'fab fa-react',
-            color: '#2ac0ca'
-        },
+        display: REACT_ICON,
         name: 'React',
     },
     {
         id: 'typescript',
         name: 'TypeScript',
-        display: {
-            url: ts
-        },
+        display: TS_ICON
     },
     {
         id: 'html',
@@ -79,17 +92,12 @@ const SKILLS: Skill[] = [
     {
         id: 'graphql',
         name: 'GraphQL',
-        display: {
-            url: gql
-        },
+        display: GQL_ICON
     },
     {
         id: 'sql',
         name: 'SQL',
-        display: {
-            icon: 'fas fa-database',
-            color: '#f38630'
-        },
+        display: SQL_ICON
     },
     {
         id: 'webpack',

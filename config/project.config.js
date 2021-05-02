@@ -9,7 +9,7 @@ const config = {
     env: 'development',
 
     // -------------------------------------
-    // Project dirs structure
+    // Projects dirs structure
     // -------------------------------------
     dirs: {
         config: __dirname.split(path.sep).pop(), // Current dir name
