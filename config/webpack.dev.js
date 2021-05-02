@@ -1,15 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
-const webpack = require('webpack');
 const defaultConfig = require('./webpack.base');
 const config = require('./project.config');
-const ProgressBar = require('../../scripts/progress');
 
-
-const progress = new ProgressBar();
-
-const APP_ENTRY = config.paths.src('main.tsx');
+const APP_ENTRY = config.paths.src('index.tsx');
 const TEMPLATE = config.paths.public('index.html');
+
+console.log('merge', config.paths.public());
 
 module.exports = merge(defaultConfig, {
     // Webpack will default some settings for development mode
@@ -33,8 +30,8 @@ module.exports = merge(defaultConfig, {
         // Allows react-router to function
         historyApiFallback: true,
         // Where to serve files from
-        port: config.dev.port,
-        host: config.dev.host,
+        port: config.server.port,
+        host: config.server.host,
         // Omit logging from terminal
         stats: 'errors-only'
     },
@@ -51,17 +48,9 @@ module.exports = merge(defaultConfig, {
         // Generates an `index.html` file with the <script> injected.
         // Add the built files as imports into the html template
         new HtmlWebpackPlugin({
-            title: config.templateLocals.title,
+            title: config.server.templateLocals.title,
             template: TEMPLATE
         }),
-        // Useful plugin to show a loading bar on startup
-        new webpack.ProgressPlugin({
-            entries: true,
-            modules: true,
-            modulesCount: 100,
-            profile: true,
-            handler: progress.trigger
-        })
     ]
 
 });

@@ -1,8 +1,6 @@
 const config = require('./project.config');
 const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TEMPLATE = config.paths.public('index.html');
+
 // -------------------------------------
 // Style loaders
 // -------------------------------------
@@ -49,7 +47,7 @@ const SASS_LOADER = {
         sourceMap: true,
         sassOptions: {
             includePaths: [
-                config.paths.client('styles')
+                config.paths.src('styles')
             ]
         }
     }
@@ -58,21 +56,11 @@ const SASS_LOADER = {
 module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
-        alias: {
-            react: path.resolve(__dirname, '../../', 'node_modules/react')
-        },
         modules: [
             'node_modules',
             config.paths.base()
         ]
     },
-
-    // Makes some environment variables available to the JS code, for example:
-    // if (process.env.NODE_ENV === 'development')
-    plugins: [
-        new webpack.DefinePlugin(config.globals),
-
-    ],
 
     module: {
         rules: [
@@ -158,12 +146,7 @@ module.exports = {
                 // plain css for third-party libraries or for globally overriding existing classes
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
-            },
-            {
-                test: /\.(graphql|gql)$/,
-                exclude: /node_modules/,
-                loader: 'graphql-tag/loader',
-            },
+            }
         ]
-    },
+    }
 };

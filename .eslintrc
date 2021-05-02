@@ -3,8 +3,7 @@
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint",
-    "eslint-plugin-jest",
-    "@calm/react-intl"
+    "eslint-plugin-jest"
   ],
   "extends": [
     "eslint:recommended",
@@ -61,15 +60,7 @@
       "files": ["src/**/*.tsx"],
       "excludedFiles": "*.spec.ts*",
       "rules": {
-        "@calm/react-intl/missing-formatted-message": [2,
-          {
-            "noTrailingWhitespace": true,
-            "ignoreLinks": true,
-            "enforceLabels": false,
-            "enforceImageAlts": false,
-            "enforceInputProps": false
-          }
-        ]
+
       }
     }
   ]

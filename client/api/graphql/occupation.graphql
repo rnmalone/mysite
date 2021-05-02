@@ -1,9 +1,0 @@
-{
-    occupation {
-       title
-       timeframe
-       imageSrc
-       location
-       text
-    }
-}

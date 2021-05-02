@@ -1,0 +1,37 @@
+@import 'core/vars';
+
+.Home {
+  justify-content: center;
+  padding-top: 4rem;
+  margin-bottom: 4rem;
+
+  @media screen and (max-width: $mobile-threshold) {
+    padding-top: 1rem;
+  }
+
+  &__img-container {
+    position: relative;
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: $text-color 5px solid;
+    }
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  h6 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: .5rem 0;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 1rem;
+  }
+}

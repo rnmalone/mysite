@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const project = require('./project.config');
 const HashedAssetPlugin = require('../lib/plugins');
-const APP_ENTRY = project.paths.client('main.tsx');
+const APP_ENTRY = project.paths.client('index.tsx');
 const APP_PUBLIC_PATH = project.client.basePath;
 
 const CSS_LOADER = {
@@ -79,7 +79,7 @@ module.exports = {
                 loader: 'ts-loader',
                 exclude: /node_modules/,
                 options: {
-                    // Allows to compile the client code in development when there are ts errors
+                    // Allows to compile the src code in development when there are ts errors
                     transpileOnly: true
                 }
             },

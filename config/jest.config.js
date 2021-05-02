@@ -18,7 +18,7 @@ const jestConfig = {
         "node_modules"
     ],
     setupFilesAfterEnv: [
-        './client/setupTests.ts'
+        './src/setupTests.ts'
     ],
     moduleNameMapper: {
         '.(png|jpg|svg)$': "<rootDir>/tools/fileMock.js",

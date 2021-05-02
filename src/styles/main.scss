@@ -1,0 +1,33 @@
+@import 'core/vars';
+@import 'transitions/slideIn';
+@import 'transitions/opacity';
+@import 'fonts/PlayfairDisplay';
+@import 'fonts/SourceSansPro';
+@import 'common/table.scss';
+@import 'common/page-item.scss';
+@import 'common/layout.scss';
+@import 'common/typeography.scss';
+@import 'common/page.scss';
+@import 'mixins/border-color.scss';
+
+#root {
+  margin: 0;
+}
+
+#root, input {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+html, body {
+  display: table;
+  width: 100%;
+  background-color: $bg-color;
+  line-height: 1.6;
+  position: relative;
+  font-family: sans-serif;
+}
+

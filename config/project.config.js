@@ -1,11 +1,12 @@
-require('dotenv').config();
-
+const debug = require('debug')('app:config:project');
 const path = require('path');
 
+debug('Creating default config.');
 // ===================================================================
 // Default Configuration
 // ===================================================================
 const config = {
+    env: 'development',
 
     // -------------------------------------
     // Project dirs structure
@@ -15,9 +16,8 @@ const config = {
         client: 'client',
         public: 'public',
         server: 'server',
-        build: 'build',
         resources: 'resources',
-        logs: 'logs',
+        src: 'src'
     },
 
     // -------------------------------------
@@ -26,8 +26,7 @@ const config = {
     client: {
         // APP Base Path WITH leading AND ending slash
         basePath: process.env.BASE_PATH || '/',
-        supportedBrowsers: ['> 1%', 'last 2 versions', 'not ie <=10', 'ie 11', 'Firefox ESR'],
-        appInsightsKey: process.env.APP_INSIGHTS_IKEY
+        supportedBrowsers: ['> 1%', 'last 2 versions', 'not ie <=10', 'ie 11', 'Firefox ESR']
     },
 
     // -------------------------------------
@@ -39,14 +38,10 @@ const config = {
 
         publicAddress: process.env.HOST || 'localhost',
 
-        apiBaseUri: process.env.API_BASE_PATH || '/v1/api',
-        localeUrl: process.env.LOCALE_URL || '/locale',
-
         templateLocals: {
             title: 'Rory Malone'
         }
     },
-
 
     // -------------------------------------
     // Build configuration
@@ -65,17 +60,16 @@ config.server.templateLocals.basePath = config.client.basePath;
 const basePath = path.resolve(__dirname, '..');
 
 function getPath(...args) {
-    return path.resolve(basePath, process.env.SOURCE_DIR ? '..' : '', ...args);
+    return path.resolve(basePath, ...args);
 }
 
 config.paths = {
     base: getPath,
     config: getPath.bind(null, config.dirs.config),
     client: getPath.bind(null, config.dirs.client),
-    build: getPath.bind(null, config.dirs.build),
     public: getPath.bind(null, config.dirs.public),
     server: getPath.bind(null, config.dirs.server),
-    logs: getPath.bind(null, config.dirs.logs),
+    src: getPath.bind(null, config.dirs.src),
     resources: getPath.bind(null, config.dirs.resources)
 };
 
