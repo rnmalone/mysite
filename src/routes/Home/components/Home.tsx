@@ -1,13 +1,14 @@
 import React from 'react';
 import '../styles/Home.scss';
 import { Socials } from '../../../components';
+import profile from '../../../assets/images/profile.jpg'
 
 export default function Home() {
 
     return (
         <div id="Home" className="Home">
             <div className="Home__img-container">
-                <img alt="me" src="/assets/images/profile.jpg"/>
+                <img alt="me" src={profile}/>
             </div>
             <h1>Rory Malone</h1>
             <h6>Full Stack Developer</h6>

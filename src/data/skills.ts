@@ -1,5 +1,10 @@
 import { Skill } from "../../types/graph";
 
+import gql from '../assets/images/gql.png'
+import redux from '../assets/images/redux.png'
+import ts from '../assets/images/ts.png'
+import webpack from '../assets/images/webpack.png'
+
 const SKILLS: Skill[] = [
     {
         id: 'react',
@@ -13,7 +18,7 @@ const SKILLS: Skill[] = [
         id: 'typescript',
         name: 'TypeScript',
         display: {
-            url: '/assets/images/ts.png'
+            url: ts
         },
     },
     {
@@ -36,7 +41,7 @@ const SKILLS: Skill[] = [
         id: 'redux',
         name: 'Redux',
         display: {
-            url: '/assets/images/redux.png'
+            url: redux
         },
     },
     {
@@ -75,7 +80,7 @@ const SKILLS: Skill[] = [
         id: 'graphql',
         name: 'GraphQL',
         display: {
-            url: '/assets/images/gql.png'
+            url: gql
         },
     },
     {
@@ -89,7 +94,7 @@ const SKILLS: Skill[] = [
     {
         id: 'webpack',
         display: {
-            url: '/assets/images/webpack.png'
+            url: webpack
         },
         name: 'Webpack',
     },
