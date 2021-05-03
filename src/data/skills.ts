@@ -11,11 +11,13 @@ export const REACT_ICON = {
 }
 
 export const TS_ICON = {
-    url: ts
+    url: ts,
+    alt: 'TS',
 }
 
 export const GQL_ICON = {
-    url: gql
+    url: gql,
+    alt: 'GQL'
 }
 
 export const SQL_ICON = {

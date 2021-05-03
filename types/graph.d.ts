@@ -22,6 +22,7 @@ export type Icon = {
 export type Image = {
   __typename?: 'Image';
   url?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
 };
 
 export type Occupation = {

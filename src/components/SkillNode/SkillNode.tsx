@@ -30,7 +30,11 @@ export default function SkillNode({
             }
             {
                 'url' in imageDisplay! ?
-                    <img src={ imageDisplay.url! } alt={ name } width={ 60 }/>
+                    <img
+                        src={ imageDisplay.url! }
+                        alt={ name || imageDisplay.alt || '' }
+                        width={ 60 }
+                    />
                     : null
             }
             { name && <span>{ name }</span> }
