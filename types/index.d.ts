@@ -13,3 +13,4 @@ export * from './track';
 export * from './responses';
 export * from './jpg';
 export * from './png';
+export * from './pdf';

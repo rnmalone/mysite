@@ -1,7 +1,8 @@
 import { CtaButton, Socials } from "../../components";
 import { appInsights, download } from "../../lib";
 import React from "react";
-import { CV_PATH, EMAIL } from "../../config/client.config";
+import { CV_FILE_NAME, EMAIL } from "../../config/client.config";
+import CV from '../../assets/pdf/rorymalone.pdf';
 import { EventType } from "../../@types/insights";
 
 import './Contact.scss';
@@ -9,7 +10,7 @@ import './Contact.scss';
 export default function Contact() {
 
     const handleDownloadClick = () => {
-        download(CV_PATH)
+        download(CV, CV_FILE_NAME)
 
         appInsights?.trackEvent({
             name: EventType.CV_CLICKED
