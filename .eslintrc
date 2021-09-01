@@ -60,7 +60,6 @@
       "files": ["src/**/*.tsx"],
       "excludedFiles": "*.spec.ts*",
       "rules": {
-
       }
     }
   ]
